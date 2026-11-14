@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "evidence_date": "2026-11-14",
+  "upstream_rocblas_commit": "4e81d94c6b489ce7d37e9a7381bf2cdb4ebf7a89",
+  "retained_rocblas_commit": "3d8f334b9a72ad99a0ecd87552613970433e0500",
+  "upstream_rocblas_version": "5.9.0.4e81d94",
+  "retained_rocblas_version": "5.8.0.3d8f334b",
+  "environment": {
+    "os": "Native Windows 11 Home",
+    "os_build": "not captured in the original measurements",
+    "cpu_operator_reported": "AMD Ryzen 7 7800X3D",
+    "driver_operator_reported": "Adrenalin 26.9.2",
+    "driver_live_inventory_performed": false,
+    "power_limit_percent_operator_reported": {
+      "RX 9060 XT": -30,
+      "RX 9070 XT": -30
+    },
+    "gpu_capacity_mib_observed": 16304
+  },
+  "sdk": {
+    "package_version_from_manifest": "10.1.0rc3",
+    "rocm_version_from_manifest": "10.1.0",
+    "therock_commit": "b324869fb3116353ac7eec5e6926aa3d452ac987",
+    "llvm_commit": "d6f6cb691863e9258034ab48c1dfce21689d5606",
+    "clang_version": "AMD clang 24.0.0git",
+    "hip_header_version": "7.16.26385",
+    "loaded_hip_runtime_version_integer": 71726405,
+    "compiler_sha256": "8bd97ede5da146356412bf0934539183a3ea72596fcdb3788f8008ae8f1172d6",
+    "cmake_version": "4.4.3",
+    "python_version_used": "3.15.2",
+    "visual_studio_version": "18.11.2",
+    "rocm_cmake_build_tools_version": "0.14.0"
+  },
+  "benchmark_source_sha256": {
+    "gfx1200": "732e187af0d86f9b692b98dfc6384fb90bafba90780fb7bef0eecb753a2a2fdd",
+    "gfx1201": "6f01ef696e2bcd018cba2bd42d13b19bf55095133a97fe6e99c99a4d4ea70622"
+  },
+  "original_benchmark_executable_sha256": {
+    "gfx1200": "788914bfdd0c78b505708bed2a3782437ef860fec09d6bd15cbe1c280d5f9eb3",
+    "gfx1201": "c55d6087f7c07c490af1b3aa02c226fc52c77efba8cf1c0ba8fbc8a1604a4ecb"
+  },
+  "common_retained_runtime_sha256": {
+    "amdhip64_7.dll": "3872b4aa82bbc91fcd53836bdbc2b4261c98c845eadfba31cce6ef4709a4697e",
+    "amd_comgr.dll": "d2677611018134df92942d5ebab986715d6891e6f8f3bb169cd17988bdaa924d",
+    "rocm_kpack.dll": "37ccf9ce0745573b52d3bc44c9ed099daff9d565ee8106121d5566ddb92d15f9",
+    "rocblas.dll": "0843520978a4d9e8bc0ed26bd1e2bae7fadb446259c9c312e3f2cbc7b5452e61",
+    "libhipblaslt.dll": "5feeee07e681457fb56e0fc03a1ba8dd4dbf4111d73e0a3fd928bdc259ef3405",
+    "libtensilelite-host.dll": "f2ef06f1408babba5c3f0d61357bf2422795199e3d66f1103eb89faccefc422e",
+    "origami.dll": "2d0abead0fe219c4c522511dc131161068783aaeae64c78ddb02d19f980e660f"
+  },
+  "retained_code_pack_sha256": {
+    "gfx1200": "0351550c13203e1fa30df15de964bc18b0f892f62c95c393a556a992c0f7c32c",
+    "gfx1201": "4928f4e39c7a9d25feb1fb617f41dd6599611b87d9ccb34ef4a1b2fc79ab92ad"
+  },
+  "upstream_rocblas_sha256": {
+    "gfx1200": "5ba05a7ea975ba3bf89f2ee45cc5175e0da09ac2ff40fee7da19019c0a0aa55a",
+    "gfx1201": "7a3265574033d9e3036bf6c46882f9f1f49fbac9f782949b794f098a23aae6df"
+  },
+  "benchmark_flags": [
+    "-O2",
+    "-std=c++17",
+    "-ffp-contract=off",
+    "-D__HIP_PLATFORM_AMD__=1",
+    "-D_DLL",
+    "-D_MT",
+    "-Xclang",
+    "--dependent-lib=msvcrt"
+  ],
+  "native_library_options": {
+    "configuration": "Release",
+    "optimization": "O3",
+    "shared": true,
+    "Tensile": false,
+    "hipBLASLt": false,
+    "upstream_clients": false,
+    "automatic_dependency_fetch": false,
+    "system_install": false
+  },
+  "retained_original_build_flags_known": false,
+  "source_variants_differ_only_in_gpu_identity": true,
+  "bundled_vendor_binaries": false
+}

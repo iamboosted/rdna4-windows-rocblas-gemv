@@ -1,0 +1,150 @@
+{
+  "schema": 1,
+  "date": "2026-11-14",
+  "purpose": "Packaging validation; original headline measurements unchanged",
+  "benchmark_sources_identical_to_original": true,
+  "benchmark_compile_targets_passed": [
+    "gfx1200",
+    "gfx1201"
+  ],
+  "native_library_configuration_targets_passed": [
+    "gfx1200",
+    "gfx1201"
+  ],
+  "build_output_paths_with_spaces_tested": true,
+  "upstream_dlls_reused_from_original_completed_builds": true,
+  "new_full_library_compile_during_packaging": false,
+  "cpu_only_tests_passed": 18,
+  "privacy_self_tests_passed": 17,
+  "cpu_only_checks": [
+    "Recompute all original medians",
+    "Reject malformed or incomplete evidence",
+    "Reject changed executable and runtime artifacts",
+    "Terminate only the owned CPU child on timeout",
+    "Preserve existing output directories",
+    "Generic account identity false positives"
+  ],
+  "gpu_validation_runs": [
+    {
+      "target": "gfx1200",
+      "gpu": "RX 9060 XT",
+      "suite": "smoke",
+      "status": "pass",
+      "library_arm": "upstream",
+      "checks": {
+        "q8_bit_comparisons": 4048192,
+        "numeric_reference_comparisons": 26054,
+        "guard_values_checked": 7168,
+        "mismatches": 0,
+        "max_owned_allocation_mib": 134.418,
+        "second_gpu_compute": false
+      },
+      "source_sha256": "732e187af0d86f9b692b98dfc6384fb90bafba90780fb7bef0eecb753a2a2fdd",
+      "executable_sha256": "fc85a703d3fbed902020f6afa142ab7ea0f77227b2642182e1910070df1aa1c7",
+      "rocblas_sha256": "5ba05a7ea975ba3bf89f2ee45cc5175e0da09ac2ff40fee7da19019c0a0aa55a",
+      "calibration_host_device_increment_ratio": 0.9828000000000001,
+      "private_adlx_guard_state": "complete",
+      "sampled_peaks": {
+        "temperatureC": 26.0,
+        "hotspotC": 27.0,
+        "powerW": 8.0
+      }
+    },
+    {
+      "target": "gfx1200",
+      "gpu": "RX 9060 XT",
+      "suite": "blas",
+      "status": "pass",
+      "library_arm": "upstream",
+      "checks": {
+        "q8_bit_comparisons": 0,
+        "numeric_reference_comparisons": 2695648,
+        "guard_values_checked": 3840,
+        "mismatches": 0,
+        "max_owned_allocation_mib": 486.551,
+        "second_gpu_compute": false
+      },
+      "source_sha256": "732e187af0d86f9b692b98dfc6384fb90bafba90780fb7bef0eecb753a2a2fdd",
+      "executable_sha256": "fc85a703d3fbed902020f6afa142ab7ea0f77227b2642182e1910070df1aa1c7",
+      "rocblas_sha256": "5ba05a7ea975ba3bf89f2ee45cc5175e0da09ac2ff40fee7da19019c0a0aa55a",
+      "calibration_host_device_increment_ratio": 1.0146,
+      "private_adlx_guard_state": "complete",
+      "sampled_peaks": {
+        "temperatureC": 27.0,
+        "hotspotC": 30.0,
+        "powerW": 43.0
+      }
+    },
+    {
+      "target": "gfx1201",
+      "gpu": "RX 9070 XT",
+      "suite": "smoke",
+      "status": "pass",
+      "library_arm": "upstream",
+      "checks": {
+        "q8_bit_comparisons": 4048192,
+        "numeric_reference_comparisons": 26054,
+        "guard_values_checked": 7168,
+        "mismatches": 0,
+        "max_owned_allocation_mib": 134.418,
+        "second_gpu_compute": false
+      },
+      "source_sha256": "6f01ef696e2bcd018cba2bd42d13b19bf55095133a97fe6e99c99a4d4ea70622",
+      "executable_sha256": "7cf4f49789c9c07824d9d74dc30892f01ca345ebfd19273c41f1feaf5db53a57",
+      "rocblas_sha256": "7a3265574033d9e3036bf6c46882f9f1f49fbac9f782949b794f098a23aae6df",
+      "calibration_host_device_increment_ratio": 0.9258,
+      "private_adlx_guard_state": "complete",
+      "sampled_peaks": {
+        "temperatureC": 44.0,
+        "hotspotC": 46.0,
+        "powerW": 41.0
+      }
+    },
+    {
+      "target": "gfx1201",
+      "gpu": "RX 9070 XT",
+      "suite": "blas",
+      "status": "pass",
+      "library_arm": "upstream",
+      "checks": {
+        "q8_bit_comparisons": 0,
+        "numeric_reference_comparisons": 2695648,
+        "guard_values_checked": 3840,
+        "mismatches": 0,
+        "max_owned_allocation_mib": 486.551,
+        "second_gpu_compute": false
+      },
+      "source_sha256": "6f01ef696e2bcd018cba2bd42d13b19bf55095133a97fe6e99c99a4d4ea70622",
+      "executable_sha256": "7cf4f49789c9c07824d9d74dc30892f01ca345ebfd19273c41f1feaf5db53a57",
+      "rocblas_sha256": "7a3265574033d9e3036bf6c46882f9f1f49fbac9f782949b794f098a23aae6df",
+      "calibration_host_device_increment_ratio": 1.0352,
+      "private_adlx_guard_state": "complete",
+      "sampled_peaks": {
+        "temperatureC": 44.0,
+        "hotspotC": 47.0,
+        "powerW": 62.0
+      }
+    }
+  ],
+  "totals": {
+    "q8_bit_comparisons": 8096384,
+    "numeric_reference_comparisons": 5443404,
+    "guard_values_checked": 22016,
+    "mismatches": 0
+  },
+  "gpu_execution": {
+    "public_run_checks_and_parser_executed": true,
+    "private_adlx_launch_adapter_used": true,
+    "standalone_helper_includes_thermal_watchdog": false,
+    "operator_reported_power_limit_percent_both_cards": -30,
+    "sequential_single_gpu_only": true
+  },
+  "new_dependencies_acquired": false,
+  "driver_or_tuning_changes": false,
+  "harness_or_production_build_changes": false,
+  "limits": [
+    "Four new GPU checks are not a replacement A/B dataset",
+    "No endurance, peer access or dual-GPU stability claim",
+    "Numerical coverage is bounded to the documented inputs and shapes"
+  ]
+}
