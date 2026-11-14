@@ -1,0 +1,5506 @@
+{
+  "date": "2026-11-14",
+  "upstream_commit": "4e81d94c6b489ce7d37e9a7381bf2cdb4ebf7a89",
+  "native_windows": true,
+  "model_free": true,
+  "inference_tok_s_measured": false,
+  "shared_benchmark_executable_verified": true,
+  "nonoverlapping_guard_windows_verified": true,
+  "runs": [
+    {
+      "label": "retained-smoke-01",
+      "backend": "retained",
+      "benchmark_sha256": "788914bfdd0c78b505708bed2a3782437ef860fec09d6bd15cbe1c280d5f9eb3",
+      "rocblas_sha256": "0843520978a4d9e8bc0ed26bd1e2bae7fadb446259c9c312e3f2cbc7b5452e61",
+      "configuration": {
+        "suite": "smoke",
+        "gpu": "RX 9060 XT",
+        "arch": "gfx1200",
+        "warp": 32,
+        "clock_khz": 100000,
+        "runtime_version": 71726405,
+        "rocblas": "5.8.0.3d8f334b",
+        "free_mib": 16158,
+        "model_free": true,
+        "second_gpu_compute": false,
+        "runtime_adjacent": true,
+        "graph_batch_calls": 8
+      },
+      "calibrations": [
+        {
+          "kind": "calibration",
+          "requested_us": 100,
+          "device_ms": 0.1,
+          "host_ms": 1.6967,
+          "hip_event_ms": 0.220599994,
+          "event_agrees": false
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 500,
+          "device_ms": 0.5,
+          "host_ms": 0.7179,
+          "hip_event_ms": 0.560800016,
+          "event_agrees": true
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 1000,
+          "device_ms": 1.0,
+          "host_ms": 1.2172,
+          "hip_event_ms": 1.044800043,
+          "event_agrees": true
+        }
+      ],
+      "calibration_host_device_increment_ratio": 0.9986000000000002,
+      "checks": {
+        "kind": "complete",
+        "suite": "smoke",
+        "q8_bit_comparisons": 4048192,
+        "numeric_reference_comparisons": 26054,
+        "guard_values_checked": 7168,
+        "mismatches": 0,
+        "max_owned_allocation_mib": 134.418,
+        "second_gpu_compute": false
+      },
+      "cases": [
+        {
+          "suite": "runtime",
+          "rows": 0,
+          "reduction": 0,
+          "layout": "none",
+          "variants": {
+            "empty_launch": {
+              "gpu_us": [
+                1.39,
+                1.365,
+                1.375,
+                1.375,
+                1.38,
+                1.385
+              ],
+              "host_us": [
+                13.2875,
+                23.175,
+                22.05,
+                20.5625,
+                20.8875,
+                19.0875
+              ],
+              "median_gpu_us": 1.3775,
+              "median_host_us": 20.725
+            }
+          }
+        },
+        {
+          "suite": "q8",
+          "rows": 257,
+          "reduction": 128,
+          "layout": "block_q8_0_row_major",
+          "variants": {
+            "eight_waves_one_row": {
+              "gpu_us": [
+                1.975,
+                2.01,
+                2.0,
+                2.005,
+                2.015,
+                1.99
+              ],
+              "host_us": [
+                16.9625,
+                20.5,
+                20.975,
+                19.825,
+                22.5625,
+                21.6625
+              ],
+              "median_gpu_us": 2.0025,
+              "median_host_us": 20.7375
+            },
+            "useful_waves_one_row": {
+              "gpu_us": [
+                1.29,
+                1.295,
+                1.29,
+                1.29,
+                1.29,
+                1.32
+              ],
+              "host_us": [
+                21.25,
+                20.1625,
+                20.275,
+                20.35,
+                20.0875,
+                19.425
+              ],
+              "median_gpu_us": 1.29,
+              "median_host_us": 20.21875
+            },
+            "useful_waves_two_rows": {
+              "gpu_us": [
+                1.295,
+                1.295,
+                1.3,
+                1.31,
+                1.305,
+                1.295
+              ],
+              "host_us": [
+                19.5125,
+                20.0375,
+                20.825,
+                20.6875,
+                20.7875,
+                20.025
+              ],
+              "median_gpu_us": 1.2974999999999999,
+              "median_host_us": 20.3625
+            },
+            "useful_waves_four_rows": {
+              "gpu_us": [
+                1.31,
+                1.295,
+                1.31,
+                1.295,
+                1.29,
+                1.295
+              ],
+              "host_us": [
+                19.5375,
+                18.725,
+                16.8375,
+                20.1875,
+                20.6375,
+                21.1625
+              ],
+              "median_gpu_us": 1.295,
+              "median_host_us": 19.8625
+            },
+            "useful_waves_eight_rows": {
+              "gpu_us": [
+                1.31,
+                1.31,
+                1.315,
+                1.33,
+                1.305,
+                1.295
+              ],
+              "host_us": [
+                20.575,
+                23.1125,
+                24.275,
+                18.8625,
+                18.925,
+                24.1
+              ],
+              "median_gpu_us": 1.31,
+              "median_host_us": 21.84375
+            }
+          }
+        },
+        {
+          "suite": "q8",
+          "rows": 4097,
+          "reduction": 256,
+          "layout": "block_q8_0_row_major",
+          "variants": {
+            "eight_waves_one_row": {
+              "gpu_us": [
+                15.85,
+                16.035,
+                15.925,
+                15.91,
+                15.96,
+                15.93
+              ],
+              "host_us": [
+                36.1375,
+                37.2875,
+                37.225,
+                34.225,
+                37.3,
+                34.6125
+              ],
+              "median_gpu_us": 15.9275,
+              "median_host_us": 36.681250000000006
+            },
+            "useful_waves_one_row": {
+              "gpu_us": [
+                4.22,
+                4.215,
+                4.22,
+                4.24,
+                4.22,
+                4.245
+              ],
+              "host_us": [
+                24.5875,
+                23.65,
+                23.45,
+                23.725,
+                23.8375,
+                23.1625
+              ],
+              "median_gpu_us": 4.22,
+              "median_host_us": 23.6875
+            },
+            "useful_waves_two_rows": {
+              "gpu_us": [
+                3.69,
+                4.03,
+                3.99,
+                3.67,
+                3.675,
+                3.69
+              ],
+              "host_us": [
+                26.025,
+                25.2375,
+                25.1625,
+                23.8625,
+                20.45,
+                22.0125
+              ],
+              "median_gpu_us": 3.69,
+              "median_host_us": 24.512500000000003
+            },
+            "useful_waves_four_rows": {
+              "gpu_us": [
+                4.085,
+                3.72,
+                4.02,
+                3.725,
+                4.23,
+                4.09
+              ],
+              "host_us": [
+                23.55,
+                23.3125,
+                23.025,
+                22.6,
+                22.15,
+                21.6625
+              ],
+              "median_gpu_us": 4.0525,
+              "median_host_us": 22.8125
+            },
+            "useful_waves_eight_rows": {
+              "gpu_us": [
+                4.45,
+                4.685,
+                3.75,
+                4.39,
+                3.745,
+                3.755
+              ],
+              "host_us": [
+                24.4125,
+                23.85,
+                23.0,
+                21.8,
+                22.725,
+                21.2875
+              ],
+              "median_gpu_us": 4.0725,
+              "median_host_us": 22.8625
+            }
+          }
+        },
+        {
+          "suite": "q8",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "block_q8_0_row_major",
+          "variants": {
+            "eight_waves_one_row": {
+              "gpu_us": [
+                1084.99,
+                1169.255,
+                1170.395,
+                1168.645,
+                1170.115,
+                1169.535
+              ],
+              "host_us": [
+                1102.975,
+                1194.175,
+                1192.725,
+                1193.975,
+                1193.9375,
+                1189.5625
+              ],
+              "median_gpu_us": 1169.395,
+              "median_host_us": 1193.33125
+            },
+            "useful_waves_one_row": {
+              "gpu_us": [
+                239.305,
+                241.1,
+                238.135,
+                241.525,
+                240.41,
+                239.73
+              ],
+              "host_us": [
+                262.225,
+                263.6375,
+                260.5375,
+                272.9375,
+                263.575,
+                260.1625
+              ],
+              "median_gpu_us": 240.07,
+              "median_host_us": 262.9
+            },
+            "useful_waves_two_rows": {
+              "gpu_us": [
+                238.7,
+                244.32,
+                236.82,
+                244.11,
+                242.425,
+                242.73
+              ],
+              "host_us": [
+                259.45,
+                266.7875,
+                259.275,
+                265.8,
+                265.4875,
+                265.4375
+              ],
+              "median_gpu_us": 242.5775,
+              "median_host_us": 265.4625
+            },
+            "useful_waves_four_rows": {
+              "gpu_us": [
+                238.485,
+                239.615,
+                237.66,
+                243.47,
+                242.91,
+                243.655
+              ],
+              "host_us": [
+                255.5,
+                278.5,
+                258.6375,
+                266.1625,
+                266.7375,
+                265.225
+              ],
+              "median_gpu_us": 241.2625,
+              "median_host_us": 265.69375
+            },
+            "useful_waves_eight_rows": {
+              "gpu_us": [
+                238.52,
+                239.035,
+                239.37,
+                241.335,
+                244.48,
+                244.06
+              ],
+              "host_us": [
+                261.625,
+                266.9625,
+                259.275,
+                261.5625,
+                267.5,
+                265.0375
+              ],
+              "median_gpu_us": 240.35250000000002,
+              "median_host_us": 263.33125
+            }
+          }
+        },
+        {
+          "suite": "q8",
+          "rows": 257,
+          "reduction": 512,
+          "layout": "block_q8_0_row_major",
+          "variants": {
+            "eight_waves_one_row": {
+              "gpu_us": [
+                1.975,
+                1.97,
+                1.98,
+                1.975,
+                1.98,
+                1.98
+              ],
+              "host_us": [
+                17.0375,
+                21.7,
+                24.1,
+                21.9,
+                21.2125,
+                20.55
+              ],
+              "median_gpu_us": 1.9775,
+              "median_host_us": 21.456249999999997
+            },
+            "useful_waves_one_row": {
+              "gpu_us": [
+                1.41,
+                1.4,
+                1.42,
+                1.395,
+                1.405,
+                1.4
+              ],
+              "host_us": [
+                20.075,
+                18.05,
+                21.8625,
+                21.2,
+                20.5,
+                21.5625
+              ],
+              "median_gpu_us": 1.4024999999999999,
+              "median_host_us": 20.85
+            },
+            "useful_waves_two_rows": {
+              "gpu_us": [
+                1.4,
+                1.42,
+                1.395,
+                1.405,
+                1.395,
+                1.41
+              ],
+              "host_us": [
+                19.675,
+                18.625,
+                20.225,
+                29.6625,
+                20.7625,
+                20.375
+              ],
+              "median_gpu_us": 1.4024999999999999,
+              "median_host_us": 20.3
+            },
+            "useful_waves_four_rows": {
+              "gpu_us": [
+                1.41,
+                1.405,
+                1.41,
+                1.4,
+                1.41,
+                1.425
+              ],
+              "host_us": [
+                17.425,
+                20.85,
+                20.5,
+                19.95,
+                18.7375,
+                21.525
+              ],
+              "median_gpu_us": 1.41,
+              "median_host_us": 20.225
+            },
+            "useful_waves_eight_rows": {
+              "gpu_us": [
+                1.41,
+                1.405,
+                1.4,
+                1.41,
+                1.4,
+                1.425
+              ],
+              "host_us": [
+                17.85,
+                15.5625,
+                20.2375,
+                20.4875,
+                21.275,
+                19.7375
+              ],
+              "median_gpu_us": 1.4075,
+              "median_host_us": 19.9875
+            }
+          }
+        },
+        {
+          "suite": "q8",
+          "rows": 257,
+          "reduction": 1024,
+          "layout": "block_q8_0_row_major",
+          "variants": {
+            "eight_waves_one_row": {
+              "gpu_us": [
+                2.01,
+                2.01,
+                2.01,
+                2.02,
+                2.01,
+                2.015
+              ],
+              "host_us": [
+                15.25,
+                22.1875,
+                18.9875,
+                24.775,
+                21.425,
+                22.2375
+              ],
+              "median_gpu_us": 2.01,
+              "median_host_us": 21.80625
+            },
+            "useful_waves_one_row": {
+              "gpu_us": [
+                1.87,
+                1.85,
+                1.87,
+                1.87,
+                1.86,
+                1.855
+              ],
+              "host_us": [
+                18.2,
+                20.85,
+                22.175,
+                20.7125,
+                19.25,
+                22.0875
+              ],
+              "median_gpu_us": 1.8650000000000002,
+              "median_host_us": 20.78125
+            },
+            "useful_waves_two_rows": {
+              "gpu_us": [
+                1.905,
+                1.915,
+                1.895,
+                1.9,
+                1.905,
+                1.89
+              ],
+              "host_us": [
+                21.175,
+                20.3625,
+                20.2375,
+                21.725,
+                21.0375,
+                20.3375
+              ],
+              "median_gpu_us": 1.9024999999999999,
+              "median_host_us": 20.700000000000003
+            },
+            "useful_waves_four_rows": {
+              "gpu_us": [
+                1.94,
+                1.95,
+                1.95,
+                1.96,
+                1.935,
+                1.955
+              ],
+              "host_us": [
+                19.1875,
+                17.6125,
+                20.95,
+                19.65,
+                21.6625,
+                20.15
+              ],
+              "median_gpu_us": 1.95,
+              "median_host_us": 19.9
+            },
+            "useful_waves_eight_rows": {
+              "gpu_us": [
+                1.98,
+                1.975,
+                1.985,
+                1.985,
+                2.0,
+                1.99
+              ],
+              "host_us": [
+                21.925,
+                19.8375,
+                18.25,
+                20.475,
+                20.6,
+                19.0125
+              ],
+              "median_gpu_us": 1.985,
+              "median_host_us": 20.15625
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4097,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                27.315,
+                27.575,
+                27.64,
+                27.665,
+                27.63,
+                27.68
+              ],
+              "host_us": [
+                42.2625,
+                47.85,
+                49.1625,
+                51.875,
+                51.025,
+                46.5
+              ],
+              "median_gpu_us": 27.634999999999998,
+              "median_host_us": 48.50625
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                9.625,
+                9.685,
+                9.675,
+                9.725,
+                9.72,
+                9.665
+              ],
+              "host_us": [
+                29.2,
+                29.2375,
+                29.7875,
+                32.3,
+                28.7625,
+                27.875
+              ],
+              "median_gpu_us": 9.68,
+              "median_host_us": 29.21875
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4097,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                6.045,
+                6.08,
+                6.04,
+                6.055,
+                6.055,
+                6.05
+              ],
+              "host_us": [
+                24.2375,
+                26.675,
+                26.3,
+                29.1125,
+                26.6125,
+                27.1375
+              ],
+              "median_gpu_us": 6.0525,
+              "median_host_us": 26.64375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                23.075,
+                24.165,
+                22.79,
+                22.86,
+                23.505,
+                22.76
+              ],
+              "host_us": [
+                45.0125,
+                44.15,
+                42.7875,
+                49.7375,
+                45.0125,
+                42.4625
+              ],
+              "median_gpu_us": 22.9675,
+              "median_host_us": 44.58125
+            }
+          }
+        },
+        {
+          "suite": "runtime",
+          "rows": 8388608,
+          "reduction": 0,
+          "layout": "bytes",
+          "variants": {
+            "device_copy_8mib": {
+              "gpu_us": [
+                23.9,
+                21.875,
+                21.84,
+                21.8,
+                21.77,
+                21.78
+              ],
+              "host_us": [
+                35.5625,
+                41.675,
+                43.1,
+                43.75,
+                42.05,
+                40.85
+              ],
+              "median_gpu_us": 21.82,
+              "median_host_us": 41.8625
+            }
+          }
+        }
+      ],
+      "telemetry_samples": 11,
+      "sampled_peaks": {
+        "temperatureC": 26.0,
+        "hotspotC": 28.0,
+        "powerW": 7.0,
+        "utilPct": 2.0,
+        "vramUsedMB": null,
+        "vramTotalMB": 16304.0
+      },
+      "guard_seconds": 5.2090338
+    },
+    {
+      "label": "upstream-smoke-01",
+      "backend": "upstream",
+      "benchmark_sha256": "788914bfdd0c78b505708bed2a3782437ef860fec09d6bd15cbe1c280d5f9eb3",
+      "rocblas_sha256": "5ba05a7ea975ba3bf89f2ee45cc5175e0da09ac2ff40fee7da19019c0a0aa55a",
+      "configuration": {
+        "suite": "smoke",
+        "gpu": "RX 9060 XT",
+        "arch": "gfx1200",
+        "warp": 32,
+        "clock_khz": 100000,
+        "runtime_version": 71726405,
+        "rocblas": "5.9.0.4e81d94",
+        "free_mib": 16158,
+        "model_free": true,
+        "second_gpu_compute": false,
+        "runtime_adjacent": true,
+        "graph_batch_calls": 8
+      },
+      "calibrations": [
+        {
+          "kind": "calibration",
+          "requested_us": 100,
+          "device_ms": 0.1,
+          "host_ms": 1.7134,
+          "hip_event_ms": 0.2016,
+          "event_agrees": false
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 500,
+          "device_ms": 0.5,
+          "host_ms": 0.7154,
+          "hip_event_ms": 0.541499972,
+          "event_agrees": true
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 1000,
+          "device_ms": 1.0,
+          "host_ms": 1.2053,
+          "hip_event_ms": 1.042299986,
+          "event_agrees": true
+        }
+      ],
+      "calibration_host_device_increment_ratio": 0.9798,
+      "checks": {
+        "kind": "complete",
+        "suite": "smoke",
+        "q8_bit_comparisons": 4048192,
+        "numeric_reference_comparisons": 26054,
+        "guard_values_checked": 7168,
+        "mismatches": 0,
+        "max_owned_allocation_mib": 134.418,
+        "second_gpu_compute": false
+      },
+      "cases": [
+        {
+          "suite": "runtime",
+          "rows": 0,
+          "reduction": 0,
+          "layout": "none",
+          "variants": {
+            "empty_launch": {
+              "gpu_us": [
+                1.355,
+                1.37,
+                1.315,
+                1.36,
+                1.36,
+                1.4
+              ],
+              "host_us": [
+                19.95,
+                21.275,
+                19.5125,
+                21.725,
+                25.3875,
+                28.7875
+              ],
+              "median_gpu_us": 1.36,
+              "median_host_us": 21.5
+            }
+          }
+        },
+        {
+          "suite": "q8",
+          "rows": 257,
+          "reduction": 128,
+          "layout": "block_q8_0_row_major",
+          "variants": {
+            "eight_waves_one_row": {
+              "gpu_us": [
+                2.0,
+                1.985,
+                2.0,
+                1.995,
+                1.975,
+                2.005
+              ],
+              "host_us": [
+                15.5125,
+                23.1875,
+                21.4375,
+                22.525,
+                20.4875,
+                23.5875
+              ],
+              "median_gpu_us": 1.9975,
+              "median_host_us": 21.98125
+            },
+            "useful_waves_one_row": {
+              "gpu_us": [
+                1.305,
+                1.295,
+                1.31,
+                1.3,
+                1.3,
+                1.305
+              ],
+              "host_us": [
+                22.05,
+                22.475,
+                22.625,
+                21.925,
+                22.4125,
+                21.9
+              ],
+              "median_gpu_us": 1.3025,
+              "median_host_us": 22.231250000000003
+            },
+            "useful_waves_two_rows": {
+              "gpu_us": [
+                1.295,
+                1.305,
+                1.3,
+                1.305,
+                1.305,
+                1.295
+              ],
+              "host_us": [
+                22.55,
+                18.4,
+                21.8,
+                24.2875,
+                33.625,
+                21.8375
+              ],
+              "median_gpu_us": 1.3025,
+              "median_host_us": 22.19375
+            },
+            "useful_waves_four_rows": {
+              "gpu_us": [
+                1.3,
+                1.29,
+                1.31,
+                1.29,
+                1.3,
+                1.295
+              ],
+              "host_us": [
+                20.05,
+                20.5,
+                22.75,
+                20.8625,
+                20.8375,
+                20.275
+              ],
+              "median_gpu_us": 1.2974999999999999,
+              "median_host_us": 20.66875
+            },
+            "useful_waves_eight_rows": {
+              "gpu_us": [
+                1.305,
+                1.31,
+                1.3,
+                1.315,
+                1.325,
+                1.325
+              ],
+              "host_us": [
+                18.075,
+                21.4,
+                20.6,
+                20.3,
+                22.65,
+                20.125
+              ],
+              "median_gpu_us": 1.3125,
+              "median_host_us": 20.450000000000003
+            }
+          }
+        },
+        {
+          "suite": "q8",
+          "rows": 4097,
+          "reduction": 256,
+          "layout": "block_q8_0_row_major",
+          "variants": {
+            "eight_waves_one_row": {
+              "gpu_us": [
+                15.845,
+                15.95,
+                15.905,
+                16.03,
+                15.925,
+                16.0
+              ],
+              "host_us": [
+                28.0375,
+                39.8875,
+                36.5375,
+                36.475,
+                36.325,
+                36.5625
+              ],
+              "median_gpu_us": 15.9375,
+              "median_host_us": 36.50625
+            },
+            "useful_waves_one_row": {
+              "gpu_us": [
+                4.215,
+                4.22,
+                4.24,
+                4.225,
+                4.225,
+                4.23
+              ],
+              "host_us": [
+                25.275,
+                25.2625,
+                24.5375,
+                25.3375,
+                24.2625,
+                22.8125
+              ],
+              "median_gpu_us": 4.225,
+              "median_host_us": 24.9
+            },
+            "useful_waves_two_rows": {
+              "gpu_us": [
+                3.685,
+                3.69,
+                3.68,
+                3.685,
+                3.68,
+                3.675
+              ],
+              "host_us": [
+                24.6375,
+                24.1375,
+                28.225,
+                24.6625,
+                24.475,
+                26.25
+              ],
+              "median_gpu_us": 3.6825,
+              "median_host_us": 24.65
+            },
+            "useful_waves_four_rows": {
+              "gpu_us": [
+                3.725,
+                3.72,
+                4.355,
+                3.73,
+                3.725,
+                4.015
+              ],
+              "host_us": [
+                24.5625,
+                23.7625,
+                28.625,
+                22.5625,
+                22.9125,
+                24.8875
+              ],
+              "median_gpu_us": 3.7275,
+              "median_host_us": 24.1625
+            },
+            "useful_waves_eight_rows": {
+              "gpu_us": [
+                4.375,
+                4.365,
+                4.15,
+                4.08,
+                3.72,
+                4.18
+              ],
+              "host_us": [
+                24.0,
+                36.125,
+                24.75,
+                25.7875,
+                23.9,
+                25.0875
+              ],
+              "median_gpu_us": 4.165,
+              "median_host_us": 24.91875
+            }
+          }
+        },
+        {
+          "suite": "q8",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "block_q8_0_row_major",
+          "variants": {
+            "eight_waves_one_row": {
+              "gpu_us": [
+                1083.605,
+                1167.715,
+                1111.935,
+                1167.99,
+                1153.215,
+                1168.58
+              ],
+              "host_us": [
+                1102.5875,
+                1189.8875,
+                1133.4625,
+                1189.8,
+                1176.45,
+                1192.5875
+              ],
+              "median_gpu_us": 1160.465,
+              "median_host_us": 1183.125
+            },
+            "useful_waves_one_row": {
+              "gpu_us": [
+                237.635,
+                241.26,
+                238.46,
+                239.475,
+                238.605,
+                240.43
+              ],
+              "host_us": [
+                258.575,
+                264.25,
+                259.6,
+                261.7125,
+                259.775,
+                261.9875
+              ],
+              "median_gpu_us": 239.04,
+              "median_host_us": 260.74375
+            },
+            "useful_waves_two_rows": {
+              "gpu_us": [
+                238.64,
+                241.025,
+                238.09,
+                243.91,
+                237.69,
+                243.96
+              ],
+              "host_us": [
+                258.1125,
+                262.8875,
+                257.5875,
+                268.9125,
+                258.0625,
+                264.7
+              ],
+              "median_gpu_us": 239.83249999999998,
+              "median_host_us": 260.5
+            },
+            "useful_waves_four_rows": {
+              "gpu_us": [
+                238.31,
+                237.905,
+                238.375,
+                240.47,
+                238.905,
+                239.53
+              ],
+              "host_us": [
+                258.275,
+                258.9375,
+                257.5125,
+                262.0,
+                258.3875,
+                261.5625
+              ],
+              "median_gpu_us": 238.64,
+              "median_host_us": 258.6625
+            },
+            "useful_waves_eight_rows": {
+              "gpu_us": [
+                238.87,
+                239.22,
+                238.585,
+                238.82,
+                239.675,
+                238.455
+              ],
+              "host_us": [
+                262.1125,
+                261.2,
+                259.5,
+                259.15,
+                261.6125,
+                260.075
+              ],
+              "median_gpu_us": 238.845,
+              "median_host_us": 260.6375
+            }
+          }
+        },
+        {
+          "suite": "q8",
+          "rows": 257,
+          "reduction": 512,
+          "layout": "block_q8_0_row_major",
+          "variants": {
+            "eight_waves_one_row": {
+              "gpu_us": [
+                1.98,
+                1.98,
+                2.015,
+                1.98,
+                1.975,
+                1.985
+              ],
+              "host_us": [
+                21.825,
+                22.7125,
+                20.7625,
+                24.8125,
+                23.5875,
+                23.1875
+              ],
+              "median_gpu_us": 1.98,
+              "median_host_us": 22.95
+            },
+            "useful_waves_one_row": {
+              "gpu_us": [
+                1.415,
+                1.39,
+                1.41,
+                1.4,
+                1.405,
+                1.39
+              ],
+              "host_us": [
+                23.25,
+                23.7625,
+                20.8375,
+                21.5375,
+                23.675,
+                23.0625
+              ],
+              "median_gpu_us": 1.4024999999999999,
+              "median_host_us": 23.15625
+            },
+            "useful_waves_two_rows": {
+              "gpu_us": [
+                1.41,
+                1.41,
+                1.39,
+                1.4,
+                1.4,
+                1.405
+              ],
+              "host_us": [
+                21.4125,
+                22.4375,
+                21.0625,
+                17.7125,
+                21.525,
+                23.3375
+              ],
+              "median_gpu_us": 1.4024999999999999,
+              "median_host_us": 21.46875
+            },
+            "useful_waves_four_rows": {
+              "gpu_us": [
+                1.42,
+                1.405,
+                1.4,
+                1.4,
+                1.405,
+                1.405
+              ],
+              "host_us": [
+                32.1875,
+                24.6375,
+                20.7625,
+                21.1125,
+                22.7,
+                20.9375
+              ],
+              "median_gpu_us": 1.405,
+              "median_host_us": 21.90625
+            },
+            "useful_waves_eight_rows": {
+              "gpu_us": [
+                1.44,
+                1.41,
+                1.41,
+                1.405,
+                1.4,
+                1.42
+              ],
+              "host_us": [
+                23.05,
+                22.0,
+                23.0375,
+                23.7,
+                21.2625,
+                20.0625
+              ],
+              "median_gpu_us": 1.41,
+              "median_host_us": 22.51875
+            }
+          }
+        },
+        {
+          "suite": "q8",
+          "rows": 257,
+          "reduction": 1024,
+          "layout": "block_q8_0_row_major",
+          "variants": {
+            "eight_waves_one_row": {
+              "gpu_us": [
+                2.01,
+                2.015,
+                2.025,
+                2.015,
+                2.0,
+                2.005
+              ],
+              "host_us": [
+                16.325,
+                24.95,
+                23.5375,
+                23.2,
+                22.9375,
+                22.85
+              ],
+              "median_gpu_us": 2.0125,
+              "median_host_us": 23.06875
+            },
+            "useful_waves_one_row": {
+              "gpu_us": [
+                1.855,
+                1.88,
+                1.88,
+                1.89,
+                1.86,
+                1.875
+              ],
+              "host_us": [
+                20.175,
+                25.9,
+                21.6875,
+                22.525,
+                23.175,
+                24.125
+              ],
+              "median_gpu_us": 1.8775,
+              "median_host_us": 22.85
+            },
+            "useful_waves_two_rows": {
+              "gpu_us": [
+                1.9,
+                1.9,
+                1.895,
+                1.905,
+                1.935,
+                1.9
+              ],
+              "host_us": [
+                23.65,
+                22.125,
+                24.075,
+                23.375,
+                25.6875,
+                21.825
+              ],
+              "median_gpu_us": 1.9,
+              "median_host_us": 23.5125
+            },
+            "useful_waves_four_rows": {
+              "gpu_us": [
+                1.955,
+                1.965,
+                1.95,
+                1.94,
+                1.98,
+                1.945
+              ],
+              "host_us": [
+                20.675,
+                22.7625,
+                25.0875,
+                22.675,
+                22.975,
+                22.9375
+              ],
+              "median_gpu_us": 1.9525000000000001,
+              "median_host_us": 22.85
+            },
+            "useful_waves_eight_rows": {
+              "gpu_us": [
+                1.985,
+                1.98,
+                1.98,
+                1.985,
+                2.02,
+                2.04
+              ],
+              "host_us": [
+                19.3375,
+                20.7625,
+                26.45,
+                21.3625,
+                26.3625,
+                22.775
+              ],
+              "median_gpu_us": 1.985,
+              "median_host_us": 22.06875
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4097,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                34.43,
+                35.105,
+                35.09,
+                35.12,
+                35.175,
+                35.165
+              ],
+              "host_us": [
+                54.3125,
+                57.225,
+                61.1375,
+                60.4875,
+                60.2,
+                56.9625
+              ],
+              "median_gpu_us": 35.1125,
+              "median_host_us": 58.712500000000006
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                10.01,
+                10.05,
+                10.07,
+                10.02,
+                10.08,
+                10.14
+              ],
+              "host_us": [
+                31.4625,
+                30.975,
+                31.7,
+                31.7125,
+                30.4125,
+                33.0375
+              ],
+              "median_gpu_us": 10.06,
+              "median_host_us": 31.581249999999997
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4097,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                6.47,
+                6.925,
+                6.9,
+                6.91,
+                6.91,
+                6.96
+              ],
+              "host_us": [
+                22.7,
+                28.475,
+                27.1125,
+                26.775,
+                27.925,
+                28.1875
+              ],
+              "median_gpu_us": 6.91,
+              "median_host_us": 27.51875
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                24.42,
+                22.855,
+                23.455,
+                22.845,
+                24.565,
+                22.67
+              ],
+              "host_us": [
+                46.65,
+                47.1125,
+                46.45,
+                45.0125,
+                44.2375,
+                48.0
+              ],
+              "median_gpu_us": 23.155,
+              "median_host_us": 46.55
+            }
+          }
+        },
+        {
+          "suite": "runtime",
+          "rows": 8388608,
+          "reduction": 0,
+          "layout": "bytes",
+          "variants": {
+            "device_copy_8mib": {
+              "gpu_us": [
+                26.92,
+                23.495,
+                21.565,
+                21.545,
+                21.51,
+                21.53
+              ],
+              "host_us": [
+                51.1,
+                44.1,
+                42.3,
+                47.5,
+                43.4,
+                44.45
+              ],
+              "median_gpu_us": 21.555,
+              "median_host_us": 44.275000000000006
+            }
+          }
+        }
+      ],
+      "telemetry_samples": 11,
+      "sampled_peaks": {
+        "temperatureC": 26.0,
+        "hotspotC": 28.0,
+        "powerW": 8.0,
+        "utilPct": 1.0,
+        "vramUsedMB": null,
+        "vramTotalMB": 16304.0
+      },
+      "guard_seconds": 5.5616398
+    },
+    {
+      "label": "retained-blas-01",
+      "backend": "retained",
+      "benchmark_sha256": "788914bfdd0c78b505708bed2a3782437ef860fec09d6bd15cbe1c280d5f9eb3",
+      "rocblas_sha256": "0843520978a4d9e8bc0ed26bd1e2bae7fadb446259c9c312e3f2cbc7b5452e61",
+      "configuration": {
+        "suite": "blas",
+        "gpu": "RX 9060 XT",
+        "arch": "gfx1200",
+        "warp": 32,
+        "clock_khz": 100000,
+        "runtime_version": 71726405,
+        "rocblas": "5.8.0.3d8f334b",
+        "free_mib": 16158,
+        "model_free": true,
+        "second_gpu_compute": false,
+        "runtime_adjacent": true,
+        "graph_batch_calls": 8
+      },
+      "calibrations": [
+        {
+          "kind": "calibration",
+          "requested_us": 100,
+          "device_ms": 0.1,
+          "host_ms": 1.8019,
+          "hip_event_ms": 0.244499996,
+          "event_agrees": false
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 500,
+          "device_ms": 0.5,
+          "host_ms": 0.6942,
+          "hip_event_ms": 0.560500026,
+          "event_agrees": true
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 1000,
+          "device_ms": 1.0,
+          "host_ms": 1.2062,
+          "hip_event_ms": 1.042299986,
+          "event_agrees": true
+        }
+      ],
+      "calibration_host_device_increment_ratio": 1.0239999999999998,
+      "checks": {
+        "kind": "complete",
+        "suite": "blas",
+        "q8_bit_comparisons": 0,
+        "numeric_reference_comparisons": 2695648,
+        "guard_values_checked": 3840,
+        "mismatches": 0,
+        "max_owned_allocation_mib": 486.551,
+        "second_gpu_compute": false
+      },
+      "cases": [
+        {
+          "suite": "runtime",
+          "rows": 0,
+          "reduction": 0,
+          "layout": "none",
+          "variants": {
+            "empty_launch": {
+              "gpu_us": [
+                1.37,
+                1.3,
+                1.355,
+                1.36,
+                1.4,
+                1.425
+              ],
+              "host_us": [
+                15.9125,
+                21.875,
+                74.6875,
+                23.6,
+                24.4625,
+                21.4
+              ],
+              "median_gpu_us": 1.3650000000000002,
+              "median_host_us": 22.7375
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                27.27,
+                27.285,
+                27.285,
+                27.28,
+                27.29,
+                27.285
+              ],
+              "host_us": [
+                40.05,
+                45.9375,
+                49.2875,
+                47.2375,
+                47.875,
+                48.9125
+              ],
+              "median_gpu_us": 27.285,
+              "median_host_us": 47.55625
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                8.935,
+                9.04,
+                9.0,
+                9.385,
+                9.32,
+                9.035
+              ],
+              "host_us": [
+                28.4375,
+                29.5625,
+                35.6125,
+                29.35,
+                29.625,
+                28.1
+              ],
+              "median_gpu_us": 9.0375,
+              "median_host_us": 29.45625
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                6.09,
+                6.105,
+                6.09,
+                6.095,
+                6.09,
+                6.085
+              ],
+              "host_us": [
+                19.1125,
+                25.125,
+                27.4375,
+                25.275,
+                26.8625,
+                27.55
+              ],
+              "median_gpu_us": 6.09,
+              "median_host_us": 26.06875
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                19.275,
+                19.465,
+                19.36,
+                19.2,
+                19.33,
+                19.34
+              ],
+              "host_us": [
+                37.95,
+                38.0625,
+                38.075,
+                39.3,
+                38.425,
+                38.7
+              ],
+              "median_gpu_us": 19.335,
+              "median_host_us": 38.25
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                428.475,
+                432.06,
+                431.5,
+                430.91,
+                430.68,
+                430.805
+              ],
+              "host_us": [
+                447.075,
+                456.3125,
+                455.65,
+                452.95,
+                453.575,
+                453.05
+              ],
+              "median_gpu_us": 430.8575,
+              "median_host_us": 453.3125
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                109.275,
+                109.43,
+                109.55,
+                109.51,
+                109.51,
+                109.595
+              ],
+              "host_us": [
+                132.075,
+                132.125,
+                130.5875,
+                131.15,
+                131.05,
+                128.9875
+              ],
+              "median_gpu_us": 109.51,
+              "median_host_us": 131.10000000000002
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                110.5,
+                110.695,
+                110.98,
+                110.95,
+                110.62,
+                110.9
+              ],
+              "host_us": [
+                126.4,
+                132.975,
+                133.1125,
+                134.1875,
+                132.9875,
+                133.7875
+              ],
+              "median_gpu_us": 110.7975,
+              "median_host_us": 133.05
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                197.315,
+                197.93,
+                198.38,
+                197.4,
+                197.19,
+                197.435
+              ],
+              "host_us": [
+                217.55,
+                219.4,
+                220.3375,
+                218.3875,
+                218.8625,
+                219.7125
+              ],
+              "median_gpu_us": 197.41750000000002,
+              "median_host_us": 219.13125000000002
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                442.405,
+                430.425,
+                435.53,
+                467.93,
+                466.64,
+                468.46
+              ],
+              "host_us": [
+                462.3125,
+                454.6375,
+                457.85,
+                490.7625,
+                487.475,
+                493.0
+              ],
+              "median_gpu_us": 454.5225,
+              "median_host_us": 474.89375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                217.36,
+                217.455,
+                217.475,
+                217.545,
+                217.77,
+                217.74
+              ],
+              "host_us": [
+                240.9375,
+                241.425,
+                238.1875,
+                239.175,
+                239.65,
+                239.6875
+              ],
+              "median_gpu_us": 217.51,
+              "median_host_us": 239.66875
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                216.53,
+                216.38,
+                216.155,
+                216.44,
+                216.28,
+                216.3
+              ],
+              "host_us": [
+                232.725,
+                244.3,
+                240.7125,
+                240.275,
+                237.075,
+                239.0875
+              ],
+              "median_gpu_us": 216.34,
+              "median_host_us": 239.68125
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                355.175,
+                358.22,
+                359.48,
+                358.585,
+                358.255,
+                357.835
+              ],
+              "host_us": [
+                376.9875,
+                379.3875,
+                381.1,
+                382.4625,
+                383.9125,
+                379.5125
+              ],
+              "median_gpu_us": 358.2375,
+              "median_host_us": 380.30625
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                578.575,
+                579.065,
+                585.185,
+                581.085,
+                582.895,
+                582.18
+              ],
+              "host_us": [
+                598.9625,
+                604.1,
+                608.5875,
+                601.025,
+                608.4,
+                606.9875
+              ],
+              "median_gpu_us": 581.6324999999999,
+              "median_host_us": 605.54375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                428.705,
+                428.75,
+                428.865,
+                428.73,
+                428.705,
+                428.785
+              ],
+              "host_us": [
+                458.675,
+                455.15,
+                451.3875,
+                451.9625,
+                453.975,
+                451.7375
+              ],
+              "median_gpu_us": 428.74,
+              "median_host_us": 452.96875
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                429.145,
+                428.865,
+                428.89,
+                428.97,
+                428.92,
+                428.93
+              ],
+              "host_us": [
+                446.9125,
+                447.8375,
+                450.0125,
+                455.925,
+                451.5,
+                454.0875
+              ],
+              "median_gpu_us": 428.925,
+              "median_host_us": 450.75625
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                649.56,
+                645.85,
+                648.62,
+                645.745,
+                646.945,
+                644.0
+              ],
+              "host_us": [
+                672.3875,
+                668.25,
+                672.225,
+                667.65,
+                668.5375,
+                666.3625
+              ],
+              "median_gpu_us": 646.3975,
+              "median_host_us": 668.39375
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                1588.25,
+                1592.01,
+                1592.715,
+                1588.31,
+                1591.875,
+                1591.74
+              ],
+              "host_us": [
+                1605.4125,
+                1616.1625,
+                1616.9125,
+                1610.5375,
+                1614.1875,
+                1615.525
+              ],
+              "median_gpu_us": 1591.8075,
+              "median_host_us": 1614.85625
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                813.595,
+                813.855,
+                813.625,
+                813.94,
+                814.42,
+                813.61
+              ],
+              "host_us": [
+                835.85,
+                839.7,
+                835.875,
+                837.1,
+                836.2375,
+                835.325
+              ],
+              "median_gpu_us": 813.74,
+              "median_host_us": 836.05625
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                811.325,
+                811.995,
+                811.625,
+                810.6,
+                812.71,
+                811.365
+              ],
+              "host_us": [
+                833.6375,
+                835.025,
+                836.425,
+                837.5125,
+                835.7625,
+                837.1375
+              ],
+              "median_gpu_us": 811.495,
+              "median_host_us": 836.09375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                977.04,
+                971.08,
+                967.0,
+                968.08,
+                969.185,
+                977.25
+              ],
+              "host_us": [
+                1003.4125,
+                996.1,
+                994.65,
+                993.2,
+                990.975,
+                1000.325
+              ],
+              "median_gpu_us": 970.1324999999999,
+              "median_host_us": 995.375
+            }
+          }
+        }
+      ],
+      "telemetry_samples": 13,
+      "sampled_peaks": {
+        "temperatureC": 27.0,
+        "hotspotC": 31.0,
+        "powerW": 35.0,
+        "utilPct": 20.0,
+        "vramUsedMB": null,
+        "vramTotalMB": 16304.0
+      },
+      "guard_seconds": 6.5596455
+    },
+    {
+      "label": "upstream-blas-01",
+      "backend": "upstream",
+      "benchmark_sha256": "788914bfdd0c78b505708bed2a3782437ef860fec09d6bd15cbe1c280d5f9eb3",
+      "rocblas_sha256": "5ba05a7ea975ba3bf89f2ee45cc5175e0da09ac2ff40fee7da19019c0a0aa55a",
+      "configuration": {
+        "suite": "blas",
+        "gpu": "RX 9060 XT",
+        "arch": "gfx1200",
+        "warp": 32,
+        "clock_khz": 100000,
+        "runtime_version": 71726405,
+        "rocblas": "5.9.0.4e81d94",
+        "free_mib": 16158,
+        "model_free": true,
+        "second_gpu_compute": false,
+        "runtime_adjacent": true,
+        "graph_batch_calls": 8
+      },
+      "calibrations": [
+        {
+          "kind": "calibration",
+          "requested_us": 100,
+          "device_ms": 0.1,
+          "host_ms": 1.8887,
+          "hip_event_ms": 0.247999996,
+          "event_agrees": false
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 500,
+          "device_ms": 0.5,
+          "host_ms": 0.7284,
+          "hip_event_ms": 0.562600017,
+          "event_agrees": true
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 1000,
+          "device_ms": 1.0,
+          "host_ms": 1.2124,
+          "hip_event_ms": 1.031100035,
+          "event_agrees": true
+        }
+      ],
+      "calibration_host_device_increment_ratio": 0.9679999999999997,
+      "checks": {
+        "kind": "complete",
+        "suite": "blas",
+        "q8_bit_comparisons": 0,
+        "numeric_reference_comparisons": 2695648,
+        "guard_values_checked": 3840,
+        "mismatches": 0,
+        "max_owned_allocation_mib": 486.551,
+        "second_gpu_compute": false
+      },
+      "cases": [
+        {
+          "suite": "runtime",
+          "rows": 0,
+          "reduction": 0,
+          "layout": "none",
+          "variants": {
+            "empty_launch": {
+              "gpu_us": [
+                1.365,
+                1.395,
+                1.375,
+                1.385,
+                1.385,
+                1.385
+              ],
+              "host_us": [
+                18.575,
+                23.2875,
+                22.7875,
+                22.325,
+                22.5125,
+                25.6375
+              ],
+              "median_gpu_us": 1.385,
+              "median_host_us": 22.65
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                78.455,
+                79.755,
+                79.515,
+                79.96,
+                79.77,
+                81.355
+              ],
+              "host_us": [
+                99.3875,
+                100.4375,
+                102.4875,
+                100.5875,
+                101.45,
+                114.45
+              ],
+              "median_gpu_us": 79.76249999999999,
+              "median_host_us": 101.01875000000001
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                20.525,
+                20.745,
+                20.81,
+                20.765,
+                20.795,
+                23.11
+              ],
+              "host_us": [
+                41.1625,
+                41.65,
+                42.0375,
+                40.825,
+                42.925,
+                54.75
+              ],
+              "median_gpu_us": 20.78,
+              "median_host_us": 41.84375
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                6.5,
+                6.955,
+                6.95,
+                7.025,
+                6.945,
+                6.945
+              ],
+              "host_us": [
+                18.4875,
+                22.7625,
+                35.2,
+                27.95,
+                28.0125,
+                32.7
+              ],
+              "median_gpu_us": 6.9475,
+              "median_host_us": 27.98125
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                19.565,
+                19.345,
+                19.135,
+                19.22,
+                19.885,
+                19.295
+              ],
+              "host_us": [
+                38.95,
+                38.0,
+                42.5125,
+                41.275,
+                42.3875,
+                42.35
+              ],
+              "median_gpu_us": 19.32,
+              "median_host_us": 41.8125
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                502.66,
+                498.395,
+                505.775,
+                541.43,
+                541.445,
+                540.245
+              ],
+              "host_us": [
+                526.125,
+                520.225,
+                530.9625,
+                564.525,
+                563.2875,
+                562.625
+              ],
+              "median_gpu_us": 523.01,
+              "median_host_us": 546.79375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                108.97,
+                109.0,
+                108.965,
+                109.105,
+                109.095,
+                109.135
+              ],
+              "host_us": [
+                129.275,
+                129.875,
+                129.675,
+                137.8625,
+                131.35,
+                131.1
+              ],
+              "median_gpu_us": 109.0475,
+              "median_host_us": 130.4875
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                109.42,
+                109.495,
+                109.625,
+                109.305,
+                109.325,
+                109.385
+              ],
+              "host_us": [
+                133.275,
+                129.9,
+                131.325,
+                128.7875,
+                129.85,
+                128.9125
+              ],
+              "median_gpu_us": 109.4025,
+              "median_host_us": 129.875
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                205.075,
+                204.36,
+                204.01,
+                205.06,
+                204.74,
+                204.34
+              ],
+              "host_us": [
+                226.8625,
+                226.325,
+                225.45,
+                224.875,
+                225.0125,
+                226.05
+              ],
+              "median_gpu_us": 204.55,
+              "median_host_us": 225.75
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                526.105,
+                533.58,
+                531.585,
+                533.5,
+                530.925,
+                558.12
+              ],
+              "host_us": [
+                545.4875,
+                564.15,
+                556.45,
+                555.775,
+                553.975,
+                579.75
+              ],
+              "median_gpu_us": 532.5425,
+              "median_host_us": 556.1125
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                217.355,
+                217.55,
+                217.38,
+                217.465,
+                217.45,
+                217.39
+              ],
+              "host_us": [
+                238.1,
+                239.4375,
+                237.8,
+                240.65,
+                239.35,
+                238.8125
+              ],
+              "median_gpu_us": 217.42,
+              "median_host_us": 239.08125
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                216.575,
+                216.6,
+                216.34,
+                216.615,
+                216.315,
+                216.53
+              ],
+              "host_us": [
+                234.15,
+                240.1,
+                240.6125,
+                243.0625,
+                239.7625,
+                243.175
+              ],
+              "median_gpu_us": 216.5525,
+              "median_host_us": 240.35625
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                370.26,
+                373.155,
+                375.285,
+                372.865,
+                373.845,
+                373.475
+              ],
+              "host_us": [
+                396.9625,
+                397.5,
+                398.2875,
+                396.05,
+                397.4125,
+                398.4375
+              ],
+              "median_gpu_us": 373.315,
+              "median_host_us": 397.45625
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                661.345,
+                669.34,
+                667.62,
+                668.54,
+                668.495,
+                670.25
+              ],
+              "host_us": [
+                682.4125,
+                692.8875,
+                693.15,
+                693.1,
+                693.3875,
+                695.95
+              ],
+              "median_gpu_us": 668.5174999999999,
+              "median_host_us": 693.125
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                428.815,
+                428.76,
+                428.815,
+                428.635,
+                428.74,
+                428.555
+              ],
+              "host_us": [
+                453.675,
+                453.225,
+                452.35,
+                451.075,
+                453.7375,
+                451.6125
+              ],
+              "median_gpu_us": 428.75,
+              "median_host_us": 452.7875
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                428.42,
+                428.19,
+                427.83,
+                428.285,
+                428.115,
+                428.35
+              ],
+              "host_us": [
+                453.1125,
+                453.7625,
+                453.7375,
+                456.3875,
+                456.0625,
+                451.8875
+              ],
+              "median_gpu_us": 428.2375,
+              "median_host_us": 453.75
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                677.1,
+                677.73,
+                672.34,
+                673.81,
+                681.04,
+                683.625
+              ],
+              "host_us": [
+                701.7125,
+                702.9,
+                698.825,
+                701.925,
+                707.2,
+                706.6125
+              ],
+              "median_gpu_us": 677.415,
+              "median_host_us": 702.4124999999999
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                1976.61,
+                1988.115,
+                1983.715,
+                1990.425,
+                1983.88,
+                1990.715
+              ],
+              "host_us": [
+                1997.35,
+                2012.45,
+                2007.5,
+                2013.3875,
+                2009.4375,
+                2012.975
+              ],
+              "median_gpu_us": 1985.9975,
+              "median_host_us": 2010.94375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                813.61,
+                813.605,
+                813.63,
+                813.65,
+                813.72,
+                813.72
+              ],
+              "host_us": [
+                836.825,
+                836.225,
+                838.2125,
+                836.275,
+                834.2875,
+                837.6375
+              ],
+              "median_gpu_us": 813.64,
+              "median_host_us": 836.55
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                811.59,
+                812.07,
+                812.16,
+                810.635,
+                810.75,
+                810.74
+              ],
+              "host_us": [
+                831.1875,
+                836.675,
+                837.675,
+                833.8375,
+                834.6625,
+                835.375
+              ],
+              "median_gpu_us": 811.1700000000001,
+              "median_host_us": 835.01875
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                973.955,
+                966.78,
+                971.09,
+                970.56,
+                965.24,
+                967.445
+              ],
+              "host_us": [
+                998.375,
+                990.2625,
+                993.6875,
+                992.625,
+                988.1125,
+                988.1875
+              ],
+              "median_gpu_us": 969.0025,
+              "median_host_us": 991.44375
+            }
+          }
+        }
+      ],
+      "telemetry_samples": 14,
+      "sampled_peaks": {
+        "temperatureC": 27.0,
+        "hotspotC": 31.0,
+        "powerW": 62.0,
+        "utilPct": 96.0,
+        "vramUsedMB": null,
+        "vramTotalMB": 16304.0
+      },
+      "guard_seconds": 6.9648349
+    },
+    {
+      "label": "upstream-blas-02",
+      "backend": "upstream",
+      "benchmark_sha256": "788914bfdd0c78b505708bed2a3782437ef860fec09d6bd15cbe1c280d5f9eb3",
+      "rocblas_sha256": "5ba05a7ea975ba3bf89f2ee45cc5175e0da09ac2ff40fee7da19019c0a0aa55a",
+      "configuration": {
+        "suite": "blas",
+        "gpu": "RX 9060 XT",
+        "arch": "gfx1200",
+        "warp": 32,
+        "clock_khz": 100000,
+        "runtime_version": 71726405,
+        "rocblas": "5.9.0.4e81d94",
+        "free_mib": 16158,
+        "model_free": true,
+        "second_gpu_compute": false,
+        "runtime_adjacent": true,
+        "graph_batch_calls": 8
+      },
+      "calibrations": [
+        {
+          "kind": "calibration",
+          "requested_us": 100,
+          "device_ms": 0.1,
+          "host_ms": 1.6798,
+          "hip_event_ms": 0.229299992,
+          "event_agrees": false
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 500,
+          "device_ms": 0.5,
+          "host_ms": 0.7187,
+          "hip_event_ms": 0.558099985,
+          "event_agrees": true
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 1000,
+          "device_ms": 1.0,
+          "host_ms": 1.2108,
+          "hip_event_ms": 1.047000051,
+          "event_agrees": true
+        }
+      ],
+      "calibration_host_device_increment_ratio": 0.9842000000000002,
+      "checks": {
+        "kind": "complete",
+        "suite": "blas",
+        "q8_bit_comparisons": 0,
+        "numeric_reference_comparisons": 2695648,
+        "guard_values_checked": 3840,
+        "mismatches": 0,
+        "max_owned_allocation_mib": 486.551,
+        "second_gpu_compute": false
+      },
+      "cases": [
+        {
+          "suite": "runtime",
+          "rows": 0,
+          "reduction": 0,
+          "layout": "none",
+          "variants": {
+            "empty_launch": {
+              "gpu_us": [
+                1.37,
+                1.4,
+                1.35,
+                1.375,
+                1.38,
+                1.34
+              ],
+              "host_us": [
+                14.1625,
+                18.3,
+                20.875,
+                20.825,
+                22.3125,
+                21.8375
+              ],
+              "median_gpu_us": 1.3725,
+              "median_host_us": 20.85
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                78.595,
+                79.11,
+                79.32,
+                79.465,
+                79.46,
+                79.57
+              ],
+              "host_us": [
+                97.4625,
+                102.8125,
+                108.525,
+                104.5375,
+                102.15,
+                102.3125
+              ],
+              "median_gpu_us": 79.38999999999999,
+              "median_host_us": 102.5625
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                18.585,
+                18.55,
+                18.73,
+                18.65,
+                18.7,
+                18.84
+              ],
+              "host_us": [
+                40.0375,
+                41.4125,
+                41.85,
+                42.2375,
+                39.8375,
+                41.175
+              ],
+              "median_gpu_us": 18.674999999999997,
+              "median_host_us": 41.29375
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                6.485,
+                6.955,
+                6.94,
+                6.94,
+                6.95,
+                6.95
+              ],
+              "host_us": [
+                21.3875,
+                26.025,
+                28.2375,
+                39.4875,
+                26.5,
+                25.8375
+              ],
+              "median_gpu_us": 6.945,
+              "median_host_us": 26.2625
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                19.895,
+                19.205,
+                19.33,
+                19.42,
+                19.16,
+                20.06
+              ],
+              "host_us": [
+                39.4625,
+                40.1875,
+                40.0375,
+                40.7375,
+                39.1,
+                40.5875
+              ],
+              "median_gpu_us": 19.375,
+              "median_host_us": 40.1125
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                502.565,
+                498.81,
+                508.165,
+                543.825,
+                543.92,
+                540.11
+              ],
+              "host_us": [
+                522.275,
+                525.55,
+                530.9375,
+                567.175,
+                566.1,
+                563.5875
+              ],
+              "median_gpu_us": 524.1375,
+              "median_host_us": 547.2625
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                108.985,
+                109.005,
+                109.03,
+                109.075,
+                109.155,
+                109.175
+              ],
+              "host_us": [
+                131.275,
+                131.1125,
+                130.2875,
+                133.075,
+                129.425,
+                131.1375
+              ],
+              "median_gpu_us": 109.05250000000001,
+              "median_host_us": 131.125
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                111.545,
+                111.385,
+                111.765,
+                112.06,
+                111.37,
+                111.805
+              ],
+              "host_us": [
+                130.55,
+                134.8,
+                133.2625,
+                137.6625,
+                132.5875,
+                133.1375
+              ],
+              "median_gpu_us": 111.655,
+              "median_host_us": 133.2
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                376.95,
+                377.93,
+                378.315,
+                377.1,
+                376.875,
+                377.29
+              ],
+              "host_us": [
+                402.375,
+                402.2625,
+                401.0375,
+                402.0375,
+                397.8125,
+                402.15
+              ],
+              "median_gpu_us": 377.19500000000005,
+              "median_host_us": 402.09375
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                527.945,
+                532.655,
+                534.595,
+                580.07,
+                580.105,
+                579.355
+              ],
+              "host_us": [
+                549.3,
+                557.7125,
+                559.8625,
+                610.4875,
+                605.5875,
+                604.2875
+              ],
+              "median_gpu_us": 556.975,
+              "median_host_us": 582.075
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                217.37,
+                217.445,
+                217.42,
+                217.385,
+                217.635,
+                217.585
+              ],
+              "host_us": [
+                238.95,
+                238.125,
+                241.7625,
+                241.55,
+                241.65,
+                241.075
+              ],
+              "median_gpu_us": 217.4325,
+              "median_host_us": 241.3125
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                216.345,
+                216.495,
+                216.505,
+                216.59,
+                216.505,
+                216.395
+              ],
+              "host_us": [
+                240.9125,
+                241.0875,
+                238.9875,
+                239.7875,
+                238.8375,
+                239.2125
+              ],
+              "median_gpu_us": 216.5,
+              "median_host_us": 239.5
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                372.685,
+                373.68,
+                375.27,
+                373.12,
+                374.64,
+                373.94
+              ],
+              "host_us": [
+                397.9625,
+                400.7125,
+                400.8625,
+                396.825,
+                399.975,
+                398.025
+              ],
+              "median_gpu_us": 373.81,
+              "median_host_us": 399.0
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                659.155,
+                667.15,
+                665.52,
+                668.615,
+                670.36,
+                668.52
+              ],
+              "host_us": [
+                682.0875,
+                690.1375,
+                690.0625,
+                694.25,
+                696.175,
+                692.9375
+              ],
+              "median_gpu_us": 667.835,
+              "median_host_us": 691.5375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                428.825,
+                428.725,
+                428.775,
+                428.82,
+                428.815,
+                428.685
+              ],
+              "host_us": [
+                454.575,
+                454.4625,
+                453.0375,
+                451.325,
+                451.7625,
+                451.0
+              ],
+              "median_gpu_us": 428.79499999999996,
+              "median_host_us": 452.4
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                428.035,
+                427.99,
+                428.315,
+                428.345,
+                428.25,
+                428.18
+              ],
+              "host_us": [
+                447.7875,
+                450.0625,
+                453.2625,
+                453.9875,
+                451.7375,
+                449.85
+              ],
+              "median_gpu_us": 428.21500000000003,
+              "median_host_us": 450.9
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                679.425,
+                674.1,
+                670.805,
+                670.4,
+                679.57,
+                675.805
+              ],
+              "host_us": [
+                701.6375,
+                699.275,
+                696.65,
+                697.0,
+                704.45,
+                698.9375
+              ],
+              "median_gpu_us": 674.9525,
+              "median_host_us": 699.10625
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                1987.18,
+                1990.265,
+                1983.345,
+                1988.155,
+                1980.98,
+                1991.22
+              ],
+              "host_us": [
+                2013.275,
+                2014.8,
+                2008.5625,
+                2012.175,
+                2008.0375,
+                2014.9125
+              ],
+              "median_gpu_us": 1987.6675,
+              "median_host_us": 2012.725
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                813.365,
+                813.67,
+                813.805,
+                813.55,
+                813.675,
+                813.775
+              ],
+              "host_us": [
+                839.4875,
+                839.4375,
+                839.425,
+                839.8125,
+                838.7,
+                836.35
+              ],
+              "median_gpu_us": 813.6724999999999,
+              "median_host_us": 839.43125
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                811.72,
+                812.405,
+                810.69,
+                810.635,
+                812.065,
+                812.1
+              ],
+              "host_us": [
+                837.2375,
+                837.75,
+                836.4375,
+                836.025,
+                834.725,
+                835.15
+              ],
+              "median_gpu_us": 811.8925,
+              "median_host_us": 836.23125
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                968.16,
+                973.635,
+                974.29,
+                971.24,
+                969.025,
+                969.875
+              ],
+              "host_us": [
+                991.0875,
+                1006.9625,
+                999.7375,
+                994.625,
+                993.1375,
+                993.2375
+              ],
+              "median_gpu_us": 970.5575,
+              "median_host_us": 993.93125
+            }
+          }
+        }
+      ],
+      "telemetry_samples": 14,
+      "sampled_peaks": {
+        "temperatureC": 27.0,
+        "hotspotC": 31.0,
+        "powerW": 58.0,
+        "utilPct": 79.0,
+        "vramUsedMB": null,
+        "vramTotalMB": 16304.0
+      },
+      "guard_seconds": 7.0070163
+    },
+    {
+      "label": "retained-blas-02",
+      "backend": "retained",
+      "benchmark_sha256": "788914bfdd0c78b505708bed2a3782437ef860fec09d6bd15cbe1c280d5f9eb3",
+      "rocblas_sha256": "0843520978a4d9e8bc0ed26bd1e2bae7fadb446259c9c312e3f2cbc7b5452e61",
+      "configuration": {
+        "suite": "blas",
+        "gpu": "RX 9060 XT",
+        "arch": "gfx1200",
+        "warp": 32,
+        "clock_khz": 100000,
+        "runtime_version": 71726405,
+        "rocblas": "5.8.0.3d8f334b",
+        "free_mib": 16158,
+        "model_free": true,
+        "second_gpu_compute": false,
+        "runtime_adjacent": true,
+        "graph_batch_calls": 8
+      },
+      "calibrations": [
+        {
+          "kind": "calibration",
+          "requested_us": 100,
+          "device_ms": 0.1,
+          "host_ms": 1.6934,
+          "hip_event_ms": 0.242799997,
+          "event_agrees": false
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 500,
+          "device_ms": 0.5,
+          "host_ms": 0.7346,
+          "hip_event_ms": 0.560000002,
+          "event_agrees": true
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 1000,
+          "device_ms": 1.0,
+          "host_ms": 1.259,
+          "hip_event_ms": 1.080500007,
+          "event_agrees": true
+        }
+      ],
+      "calibration_host_device_increment_ratio": 1.0487999999999997,
+      "checks": {
+        "kind": "complete",
+        "suite": "blas",
+        "q8_bit_comparisons": 0,
+        "numeric_reference_comparisons": 2695648,
+        "guard_values_checked": 3840,
+        "mismatches": 0,
+        "max_owned_allocation_mib": 486.551,
+        "second_gpu_compute": false
+      },
+      "cases": [
+        {
+          "suite": "runtime",
+          "rows": 0,
+          "reduction": 0,
+          "layout": "none",
+          "variants": {
+            "empty_launch": {
+              "gpu_us": [
+                1.5,
+                1.51,
+                1.48,
+                1.465,
+                1.5,
+                1.465
+              ],
+              "host_us": [
+                15.25,
+                24.9375,
+                24.0875,
+                20.6375,
+                22.0625,
+                20.2875
+              ],
+              "median_gpu_us": 1.49,
+              "median_host_us": 21.35
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                60.65,
+                61.45,
+                61.28,
+                61.59,
+                61.63,
+                61.495
+              ],
+              "host_us": [
+                77.9875,
+                84.9,
+                83.5625,
+                81.825,
+                80.7125,
+                85.975
+              ],
+              "median_gpu_us": 61.4725,
+              "median_host_us": 82.69375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                18.08,
+                18.065,
+                18.48,
+                18.205,
+                18.225,
+                18.245
+              ],
+              "host_us": [
+                34.925,
+                38.3375,
+                39.35,
+                40.5375,
+                42.025,
+                39.275
+              ],
+              "median_gpu_us": 18.215,
+              "median_host_us": 39.3125
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                6.115,
+                6.1,
+                6.095,
+                6.095,
+                6.105,
+                6.095
+              ],
+              "host_us": [
+                18.5125,
+                27.975,
+                26.5375,
+                26.05,
+                26.375,
+                25.3125
+              ],
+              "median_gpu_us": 6.0975,
+              "median_host_us": 26.2125
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                19.105,
+                19.435,
+                19.465,
+                19.41,
+                19.36,
+                19.21
+              ],
+              "host_us": [
+                37.75,
+                39.675,
+                37.975,
+                37.7125,
+                36.45,
+                40.2625
+              ],
+              "median_gpu_us": 19.384999999999998,
+              "median_host_us": 37.8625
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                415.475,
+                428.98,
+                431.365,
+                429.615,
+                429.92,
+                429.445
+              ],
+              "host_us": [
+                442.3875,
+                452.3375,
+                452.95,
+                452.4625,
+                452.025,
+                453.1375
+              ],
+              "median_gpu_us": 429.53,
+              "median_host_us": 452.4
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                109.17,
+                109.405,
+                109.49,
+                109.565,
+                109.575,
+                109.6
+              ],
+              "host_us": [
+                129.025,
+                132.825,
+                130.0375,
+                131.45,
+                131.5,
+                129.9
+              ],
+              "median_gpu_us": 109.5275,
+              "median_host_us": 130.74374999999998
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                112.67,
+                113.475,
+                112.455,
+                113.195,
+                112.995,
+                114.14
+              ],
+              "host_us": [
+                131.4875,
+                135.075,
+                136.225,
+                135.6625,
+                139.225,
+                138.8375
+              ],
+              "median_gpu_us": 113.095,
+              "median_host_us": 135.94375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                372.13,
+                372.975,
+                372.325,
+                374.565,
+                373.045,
+                373.625
+              ],
+              "host_us": [
+                395.8,
+                396.8625,
+                395.7125,
+                397.125,
+                398.7,
+                398.0375
+              ],
+              "median_gpu_us": 373.01,
+              "median_host_us": 396.99375
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                428.4,
+                428.96,
+                427.91,
+                441.22,
+                462.975,
+                466.8
+              ],
+              "host_us": [
+                448.05,
+                452.4,
+                449.775,
+                465.6375,
+                485.6875,
+                489.225
+              ],
+              "median_gpu_us": 435.09000000000003,
+              "median_host_us": 459.01874999999995
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                218.135,
+                217.455,
+                217.445,
+                217.44,
+                217.695,
+                217.61
+              ],
+              "host_us": [
+                239.525,
+                240.0125,
+                240.5125,
+                241.275,
+                240.5,
+                243.7125
+              ],
+              "median_gpu_us": 217.53250000000003,
+              "median_host_us": 240.50625
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                217.05,
+                216.225,
+                216.58,
+                216.46,
+                216.345,
+                216.32
+              ],
+              "host_us": [
+                236.1625,
+                240.5125,
+                237.225,
+                237.7,
+                238.6875,
+                238.075
+              ],
+              "median_gpu_us": 216.4025,
+              "median_host_us": 237.8875
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                359.13,
+                356.575,
+                358.16,
+                357.86,
+                357.335,
+                356.99
+              ],
+              "host_us": [
+                383.35,
+                379.2375,
+                382.0,
+                381.2625,
+                383.6625,
+                378.3625
+              ],
+              "median_gpu_us": 357.59749999999997,
+              "median_host_us": 381.63125
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                574.635,
+                583.87,
+                579.495,
+                582.03,
+                581.48,
+                579.79
+              ],
+              "host_us": [
+                600.125,
+                607.4625,
+                603.025,
+                606.3625,
+                601.475,
+                602.3125
+              ],
+              "median_gpu_us": 580.635,
+              "median_host_us": 602.66875
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                428.695,
+                428.785,
+                428.77,
+                428.72,
+                429.045,
+                428.655
+              ],
+              "host_us": [
+                451.8375,
+                451.2125,
+                452.7875,
+                451.6,
+                454.2125,
+                452.5
+              ],
+              "median_gpu_us": 428.745,
+              "median_host_us": 452.16875
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                428.575,
+                429.195,
+                428.89,
+                428.77,
+                428.96,
+                428.87
+              ],
+              "host_us": [
+                449.2125,
+                453.3,
+                453.2,
+                451.4875,
+                450.8125,
+                451.55
+              ],
+              "median_gpu_us": 428.88,
+              "median_host_us": 451.51875
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                650.475,
+                645.755,
+                644.455,
+                647.465,
+                650.315,
+                648.955
+              ],
+              "host_us": [
+                675.6,
+                671.5375,
+                668.625,
+                671.175,
+                673.4,
+                673.05
+              ],
+              "median_gpu_us": 648.21,
+              "median_host_us": 672.29375
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                1590.335,
+                1594.81,
+                1596.715,
+                1595.07,
+                1595.395,
+                1595.585
+              ],
+              "host_us": [
+                1611.2625,
+                1619.0875,
+                1620.5875,
+                1617.3625,
+                1620.85,
+                1617.325
+              ],
+              "median_gpu_us": 1595.2325,
+              "median_host_us": 1618.225
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                813.65,
+                813.495,
+                813.705,
+                813.755,
+                814.32,
+                813.945
+              ],
+              "host_us": [
+                835.85,
+                836.725,
+                837.0125,
+                836.75,
+                838.275,
+                836.975
+              ],
+              "median_gpu_us": 813.73,
+              "median_host_us": 836.8625
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                810.665,
+                811.54,
+                810.765,
+                810.925,
+                811.48,
+                811.595
+              ],
+              "host_us": [
+                841.7625,
+                840.3625,
+                838.4375,
+                838.4875,
+                837.9375,
+                836.45
+              ],
+              "median_gpu_us": 811.2025,
+              "median_host_us": 838.4625
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                970.68,
+                965.695,
+                970.13,
+                971.365,
+                972.24,
+                968.06
+              ],
+              "host_us": [
+                998.4625,
+                992.725,
+                995.4125,
+                998.3125,
+                998.5375,
+                992.525
+              ],
+              "median_gpu_us": 970.405,
+              "median_host_us": 996.8625
+            }
+          }
+        }
+      ],
+      "telemetry_samples": 14,
+      "sampled_peaks": {
+        "temperatureC": 28.0,
+        "hotspotC": 32.0,
+        "powerW": 47.0,
+        "utilPct": 52.0,
+        "vramUsedMB": null,
+        "vramTotalMB": 16304.0
+      },
+      "guard_seconds": 6.882991
+    },
+    {
+      "label": "retained-blas-03",
+      "backend": "retained",
+      "benchmark_sha256": "788914bfdd0c78b505708bed2a3782437ef860fec09d6bd15cbe1c280d5f9eb3",
+      "rocblas_sha256": "0843520978a4d9e8bc0ed26bd1e2bae7fadb446259c9c312e3f2cbc7b5452e61",
+      "configuration": {
+        "suite": "blas",
+        "gpu": "RX 9060 XT",
+        "arch": "gfx1200",
+        "warp": 32,
+        "clock_khz": 100000,
+        "runtime_version": 71726405,
+        "rocblas": "5.8.0.3d8f334b",
+        "free_mib": 16158,
+        "model_free": true,
+        "second_gpu_compute": false,
+        "runtime_adjacent": true,
+        "graph_batch_calls": 8
+      },
+      "calibrations": [
+        {
+          "kind": "calibration",
+          "requested_us": 100,
+          "device_ms": 0.1,
+          "host_ms": 1.6274,
+          "hip_event_ms": 0.223000005,
+          "event_agrees": false
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 500,
+          "device_ms": 0.5,
+          "host_ms": 0.7009,
+          "hip_event_ms": 0.549499989,
+          "event_agrees": true
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 1000,
+          "device_ms": 1.0,
+          "host_ms": 1.2218,
+          "hip_event_ms": 1.057099938,
+          "event_agrees": true
+        }
+      ],
+      "calibration_host_device_increment_ratio": 1.0418,
+      "checks": {
+        "kind": "complete",
+        "suite": "blas",
+        "q8_bit_comparisons": 0,
+        "numeric_reference_comparisons": 2695648,
+        "guard_values_checked": 3840,
+        "mismatches": 0,
+        "max_owned_allocation_mib": 486.551,
+        "second_gpu_compute": false
+      },
+      "cases": [
+        {
+          "suite": "runtime",
+          "rows": 0,
+          "reduction": 0,
+          "layout": "none",
+          "variants": {
+            "empty_launch": {
+              "gpu_us": [
+                1.365,
+                1.37,
+                1.355,
+                1.36,
+                1.325,
+                1.36
+              ],
+              "host_us": [
+                14.375,
+                20.9625,
+                20.4625,
+                21.0375,
+                18.8375,
+                21.5375
+              ],
+              "median_gpu_us": 1.36,
+              "median_host_us": 20.7125
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                60.695,
+                61.335,
+                61.25,
+                61.485,
+                61.46,
+                61.54
+              ],
+              "host_us": [
+                79.5875,
+                84.975,
+                84.75,
+                84.5125,
+                87.875,
+                81.5625
+              ],
+              "median_gpu_us": 61.3975,
+              "median_host_us": 84.63125
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                18.105,
+                17.915,
+                18.195,
+                18.04,
+                18.185,
+                18.2
+              ],
+              "host_us": [
+                39.975,
+                41.3,
+                39.175,
+                41.475,
+                41.4125,
+                40.3
+              ],
+              "median_gpu_us": 18.145,
+              "median_host_us": 40.8
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                6.09,
+                6.1,
+                6.1,
+                6.095,
+                6.165,
+                6.085
+              ],
+              "host_us": [
+                21.3125,
+                25.4125,
+                24.9625,
+                24.225,
+                23.925,
+                28.0125
+              ],
+              "median_gpu_us": 6.0975,
+              "median_host_us": 24.59375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                19.245,
+                19.495,
+                19.465,
+                19.27,
+                19.395,
+                19.245
+              ],
+              "host_us": [
+                40.6125,
+                38.175,
+                37.6,
+                36.8625,
+                45.225,
+                40.0875
+              ],
+              "median_gpu_us": 19.3325,
+              "median_host_us": 39.131249999999994
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                425.735,
+                431.25,
+                431.2,
+                431.65,
+                430.27,
+                432.18
+              ],
+              "host_us": [
+                445.575,
+                454.725,
+                452.375,
+                454.1,
+                451.9,
+                453.0125
+              ],
+              "median_gpu_us": 431.225,
+              "median_host_us": 452.69375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                109.315,
+                109.485,
+                109.55,
+                109.565,
+                109.57,
+                109.515
+              ],
+              "host_us": [
+                128.6875,
+                130.525,
+                130.2375,
+                131.65,
+                132.0125,
+                130.95
+              ],
+              "median_gpu_us": 109.5325,
+              "median_host_us": 130.7375
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                112.335,
+                113.12,
+                112.43,
+                112.555,
+                112.465,
+                112.81
+              ],
+              "host_us": [
+                129.65,
+                140.0625,
+                139.3625,
+                136.25,
+                138.0625,
+                137.4125
+              ],
+              "median_gpu_us": 112.51,
+              "median_host_us": 137.7375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                373.28,
+                374.145,
+                373.215,
+                373.115,
+                372.455,
+                374.2
+              ],
+              "host_us": [
+                397.4,
+                399.1125,
+                398.6625,
+                397.925,
+                395.7375,
+                399.4625
+              ],
+              "median_gpu_us": 373.24749999999995,
+              "median_host_us": 398.29375000000005
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                447.805,
+                432.775,
+                438.755,
+                468.355,
+                466.83,
+                467.59
+              ],
+              "host_us": [
+                467.15,
+                455.5,
+                464.375,
+                495.5375,
+                489.525,
+                490.1
+              ],
+              "median_gpu_us": 457.3175,
+              "median_host_us": 478.3375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                217.595,
+                217.53,
+                217.47,
+                217.565,
+                217.725,
+                217.665
+              ],
+              "host_us": [
+                240.1125,
+                239.0125,
+                240.7875,
+                241.55,
+                239.9625,
+                239.2
+              ],
+              "median_gpu_us": 217.57999999999998,
+              "median_host_us": 240.03750000000002
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                216.325,
+                216.39,
+                216.365,
+                216.265,
+                216.22,
+                216.4
+              ],
+              "host_us": [
+                233.625,
+                238.825,
+                237.7625,
+                235.55,
+                237.2,
+                239.675
+              ],
+              "median_gpu_us": 216.345,
+              "median_host_us": 237.48125
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                354.235,
+                356.495,
+                360.14,
+                358.87,
+                358.07,
+                359.435
+              ],
+              "host_us": [
+                375.45,
+                379.5625,
+                384.6125,
+                379.875,
+                378.9,
+                378.9375
+              ],
+              "median_gpu_us": 358.47,
+              "median_host_us": 379.25
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                579.91,
+                579.985,
+                583.795,
+                583.815,
+                582.025,
+                582.47
+              ],
+              "host_us": [
+                602.325,
+                601.925,
+                610.8,
+                608.3875,
+                605.325,
+                604.6
+              ],
+              "median_gpu_us": 582.2475,
+              "median_host_us": 604.9625000000001
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                428.89,
+                428.895,
+                428.775,
+                428.72,
+                428.92,
+                428.595
+              ],
+              "host_us": [
+                451.775,
+                451.2,
+                452.975,
+                452.325,
+                501.6,
+                450.3875
+              ],
+              "median_gpu_us": 428.8325,
+              "median_host_us": 452.04999999999995
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                429.11,
+                429.605,
+                428.885,
+                428.97,
+                428.95,
+                429.81
+              ],
+              "host_us": [
+                448.7,
+                455.0375,
+                453.2375,
+                452.55,
+                455.0375,
+                453.675
+              ],
+              "median_gpu_us": 429.04,
+              "median_host_us": 453.45625
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                651.445,
+                647.665,
+                643.085,
+                645.91,
+                650.605,
+                649.865
+              ],
+              "host_us": [
+                677.3625,
+                673.0875,
+                668.025,
+                670.55,
+                675.6375,
+                674.2
+              ],
+              "median_gpu_us": 648.765,
+              "median_host_us": 673.64375
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                1587.03,
+                1592.795,
+                1591.0,
+                1596.225,
+                1595.82,
+                1591.52
+              ],
+              "host_us": [
+                1608.5875,
+                1619.4,
+                1616.925,
+                1621.0,
+                1622.525,
+                1615.175
+              ],
+              "median_gpu_us": 1592.1575,
+              "median_host_us": 1618.1625
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                813.54,
+                813.505,
+                813.77,
+                813.67,
+                813.67,
+                813.775
+              ],
+              "host_us": [
+                838.825,
+                838.65,
+                837.9125,
+                837.6125,
+                839.075,
+                834.475
+              ],
+              "median_gpu_us": 813.67,
+              "median_host_us": 838.28125
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                810.63,
+                812.445,
+                810.65,
+                810.7,
+                811.44,
+                811.31
+              ],
+              "host_us": [
+                835.8625,
+                835.025,
+                836.925,
+                835.6375,
+                837.7375,
+                839.2125
+              ],
+              "median_gpu_us": 811.005,
+              "median_host_us": 836.39375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                977.16,
+                971.545,
+                968.605,
+                968.54,
+                966.3,
+                969.895
+              ],
+              "host_us": [
+                1001.6625,
+                995.05,
+                994.2375,
+                995.575,
+                992.2625,
+                994.675
+              ],
+              "median_gpu_us": 969.25,
+              "median_host_us": 994.8625
+            }
+          }
+        }
+      ],
+      "telemetry_samples": 14,
+      "sampled_peaks": {
+        "temperatureC": 28.0,
+        "hotspotC": 32.0,
+        "powerW": 48.0,
+        "utilPct": 51.0,
+        "vramUsedMB": null,
+        "vramTotalMB": 16304.0
+      },
+      "guard_seconds": 6.870147
+    },
+    {
+      "label": "upstream-blas-03",
+      "backend": "upstream",
+      "benchmark_sha256": "788914bfdd0c78b505708bed2a3782437ef860fec09d6bd15cbe1c280d5f9eb3",
+      "rocblas_sha256": "5ba05a7ea975ba3bf89f2ee45cc5175e0da09ac2ff40fee7da19019c0a0aa55a",
+      "configuration": {
+        "suite": "blas",
+        "gpu": "RX 9060 XT",
+        "arch": "gfx1200",
+        "warp": 32,
+        "clock_khz": 100000,
+        "runtime_version": 71726405,
+        "rocblas": "5.9.0.4e81d94",
+        "free_mib": 16158,
+        "model_free": true,
+        "second_gpu_compute": false,
+        "runtime_adjacent": true,
+        "graph_batch_calls": 8
+      },
+      "calibrations": [
+        {
+          "kind": "calibration",
+          "requested_us": 100,
+          "device_ms": 0.1,
+          "host_ms": 1.6896,
+          "hip_event_ms": 0.216499999,
+          "event_agrees": false
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 500,
+          "device_ms": 0.5,
+          "host_ms": 0.7094,
+          "hip_event_ms": 0.554400027,
+          "event_agrees": true
+        },
+        {
+          "kind": "calibration",
+          "requested_us": 1000,
+          "device_ms": 1.0,
+          "host_ms": 1.2573,
+          "hip_event_ms": 1.06400001,
+          "event_agrees": true
+        }
+      ],
+      "calibration_host_device_increment_ratio": 1.0958,
+      "checks": {
+        "kind": "complete",
+        "suite": "blas",
+        "q8_bit_comparisons": 0,
+        "numeric_reference_comparisons": 2695648,
+        "guard_values_checked": 3840,
+        "mismatches": 0,
+        "max_owned_allocation_mib": 486.551,
+        "second_gpu_compute": false
+      },
+      "cases": [
+        {
+          "suite": "runtime",
+          "rows": 0,
+          "reduction": 0,
+          "layout": "none",
+          "variants": {
+            "empty_launch": {
+              "gpu_us": [
+                1.465,
+                1.505,
+                1.475,
+                1.415,
+                1.48,
+                1.485
+              ],
+              "host_us": [
+                12.3625,
+                23.2875,
+                21.7625,
+                22.975,
+                21.7125,
+                23.5625
+              ],
+              "median_gpu_us": 1.4775,
+              "median_host_us": 22.36875
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                78.31,
+                79.215,
+                79.465,
+                79.55,
+                79.53,
+                79.535
+              ],
+              "host_us": [
+                96.2375,
+                102.05,
+                102.025,
+                102.9125,
+                107.9375,
+                102.8875
+              ],
+              "median_gpu_us": 79.4975,
+              "median_host_us": 102.46875
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                18.55,
+                18.61,
+                18.645,
+                18.61,
+                18.66,
+                18.615
+              ],
+              "host_us": [
+                42.675,
+                41.5875,
+                40.975,
+                40.7625,
+                40.5375,
+                39.0875
+              ],
+              "median_gpu_us": 18.612499999999997,
+              "median_host_us": 40.868750000000006
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                6.49,
+                6.95,
+                6.96,
+                6.955,
+                6.95,
+                6.96
+              ],
+              "host_us": [
+                27.6875,
+                28.525,
+                28.5875,
+                26.4625,
+                28.3875,
+                27.0375
+              ],
+              "median_gpu_us": 6.952500000000001,
+              "median_host_us": 28.0375
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                19.27,
+                19.87,
+                19.51,
+                19.825,
+                19.235,
+                20.255
+              ],
+              "host_us": [
+                40.2125,
+                41.35,
+                39.0375,
+                39.95,
+                41.2625,
+                42.525
+              ],
+              "median_gpu_us": 19.6675,
+              "median_host_us": 40.7375
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                498.175,
+                498.09,
+                498.905,
+                544.23,
+                541.335,
+                542.8
+              ],
+              "host_us": [
+                517.925,
+                520.05,
+                520.2,
+                565.725,
+                566.425,
+                565.175
+              ],
+              "median_gpu_us": 520.12,
+              "median_host_us": 542.6875
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                108.985,
+                108.925,
+                108.935,
+                109.025,
+                109.09,
+                109.135
+              ],
+              "host_us": [
+                131.4375,
+                129.325,
+                130.3375,
+                131.3125,
+                130.875,
+                130.3125
+              ],
+              "median_gpu_us": 109.005,
+              "median_host_us": 130.60625
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                109.605,
+                109.69,
+                110.305,
+                109.475,
+                110.1,
+                110.02
+              ],
+              "host_us": [
+                129.5125,
+                133.625,
+                132.15,
+                131.45,
+                135.05,
+                132.175
+              ],
+              "median_gpu_us": 109.85499999999999,
+              "median_host_us": 132.16250000000002
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                204.66,
+                203.86,
+                205.115,
+                203.95,
+                204.59,
+                204.65
+              ],
+              "host_us": [
+                228.0625,
+                232.6375,
+                228.425,
+                228.375,
+                226.7625,
+                227.9375
+              ],
+              "median_gpu_us": 204.62,
+              "median_host_us": 228.21875
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                531.425,
+                530.73,
+                527.285,
+                533.135,
+                537.04,
+                579.435
+              ],
+              "host_us": [
+                556.5625,
+                553.475,
+                549.675,
+                557.3375,
+                561.4375,
+                602.6875
+              ],
+              "median_gpu_us": 532.28,
+              "median_host_us": 556.95
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                217.47,
+                217.5,
+                217.385,
+                217.48,
+                217.425,
+                217.625
+              ],
+              "host_us": [
+                238.5,
+                237.525,
+                238.6375,
+                238.0625,
+                237.9875,
+                245.6125
+              ],
+              "median_gpu_us": 217.475,
+              "median_host_us": 238.28125
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                216.495,
+                216.57,
+                216.68,
+                216.385,
+                216.49,
+                216.625
+              ],
+              "host_us": [
+                236.4125,
+                239.0625,
+                241.5625,
+                241.325,
+                240.375,
+                239.6625
+              ],
+              "median_gpu_us": 216.5325,
+              "median_host_us": 240.01875
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                370.26,
+                373.41,
+                372.66,
+                372.91,
+                372.805,
+                375.115
+              ],
+              "host_us": [
+                393.875,
+                398.7,
+                400.0375,
+                396.025,
+                396.8125,
+                400.6
+              ],
+              "median_gpu_us": 372.8575,
+              "median_host_us": 397.75625
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                662.25,
+                669.52,
+                665.87,
+                668.665,
+                666.235,
+                669.095
+              ],
+              "host_us": [
+                687.375,
+                693.6875,
+                688.6125,
+                692.8375,
+                690.9375,
+                693.1875
+              ],
+              "median_gpu_us": 667.45,
+              "median_host_us": 691.8875
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                428.765,
+                428.83,
+                428.83,
+                428.805,
+                428.77,
+                428.655
+              ],
+              "host_us": [
+                451.9125,
+                452.525,
+                453.0125,
+                450.675,
+                453.225,
+                450.9375
+              ],
+              "median_gpu_us": 428.7875,
+              "median_host_us": 452.21875
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                428.125,
+                428.08,
+                428.315,
+                428.46,
+                428.295,
+                428.375
+              ],
+              "host_us": [
+                448.1375,
+                452.45,
+                451.125,
+                448.8375,
+                451.975,
+                452.5625
+              ],
+              "median_gpu_us": 428.305,
+              "median_host_us": 451.55
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                676.22,
+                674.345,
+                678.275,
+                671.39,
+                674.75,
+                675.125
+              ],
+              "host_us": [
+                700.2875,
+                698.3625,
+                702.2625,
+                695.6,
+                701.3125,
+                699.0375
+              ],
+              "median_gpu_us": 674.9375,
+              "median_host_us": 699.6625
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                1985.47,
+                1978.865,
+                1983.19,
+                1986.895,
+                1986.525,
+                1981.435
+              ],
+              "host_us": [
+                2009.7625,
+                2004.9625,
+                2005.2125,
+                2012.7375,
+                2014.2,
+                2005.7375
+              ],
+              "median_gpu_us": 1984.33,
+              "median_host_us": 2007.75
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                813.43,
+                813.635,
+                813.65,
+                813.73,
+                813.675,
+                813.495
+              ],
+              "host_us": [
+                839.6625,
+                837.3375,
+                847.15,
+                840.6625,
+                839.7375,
+                837.4125
+              ],
+              "median_gpu_us": 813.6424999999999,
+              "median_host_us": 839.7
+            }
+          }
+        },
+        {
+          "suite": "fp32",
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "variants": {
+            "rocblas_sgemv": {
+              "gpu_us": [
+                810.6,
+                811.64,
+                810.715,
+                810.665,
+                811.045,
+                810.705
+              ],
+              "host_us": [
+                827.9625,
+                835.875,
+                832.1875,
+                833.925,
+                831.9125,
+                835.75
+              ],
+              "median_gpu_us": 810.71,
+              "median_host_us": 833.05625
+            },
+            "custom_wave32_four_rows": {
+              "gpu_us": [
+                966.265,
+                970.265,
+                974.465,
+                968.105,
+                973.12,
+                970.74
+              ],
+              "host_us": [
+                988.1125,
+                994.2125,
+                998.075,
+                996.4125,
+                996.2125,
+                993.5
+              ],
+              "median_gpu_us": 970.5025,
+              "median_host_us": 995.2125
+            }
+          }
+        }
+      ],
+      "telemetry_samples": 14,
+      "sampled_peaks": {
+        "temperatureC": 28.0,
+        "hotspotC": 37.0,
+        "powerW": 77.0,
+        "utilPct": 63.0,
+        "vramUsedMB": null,
+        "vramTotalMB": 16304.0
+      },
+      "guard_seconds": 6.7100366
+    }
+  ],
+  "summary": [
+    {
+      "rows": 4096,
+      "reduction": 256,
+      "layout": "row_major_via_transpose",
+      "retained": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            27.285,
+            61.4725,
+            61.3975
+          ],
+          "median_us": 61.3975,
+          "max_min_session_ratio": 2.2529778266446763
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            9.0375,
+            18.215,
+            18.145
+          ],
+          "median_us": 18.145,
+          "max_min_session_ratio": 2.015491009681881
+        }
+      },
+      "upstream": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            79.76249999999999,
+            79.38999999999999,
+            79.4975
+          ],
+          "median_us": 79.4975,
+          "max_min_session_ratio": 1.004692026703615
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            20.78,
+            18.674999999999997,
+            18.612499999999997
+          ],
+          "median_us": 18.674999999999997,
+          "max_min_session_ratio": 1.1164539959704503
+        }
+      },
+      "retained_over_upstream_speed_ratio": 0.7723198842730903,
+      "upstream_over_custom_speed_ratio": 4.2568942436412325,
+      "upstream_time_change_percent": 29.480027688423792,
+      "library_session_variability_above_15_percent": true,
+      "custom_session_variability_above_15_percent": true
+    },
+    {
+      "rows": 4096,
+      "reduction": 256,
+      "layout": "column_major_nontransposed",
+      "retained": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            6.09,
+            6.0975,
+            6.0975
+          ],
+          "median_us": 6.0975,
+          "max_min_session_ratio": 1.001231527093596
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            19.335,
+            19.384999999999998,
+            19.3325
+          ],
+          "median_us": 19.335,
+          "max_min_session_ratio": 1.0027156342945815
+        }
+      },
+      "upstream": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            6.9475,
+            6.945,
+            6.952500000000001
+          ],
+          "median_us": 6.9475,
+          "max_min_session_ratio": 1.0010799136069115
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            19.32,
+            19.375,
+            19.6675
+          ],
+          "median_us": 19.375,
+          "max_min_session_ratio": 1.017986542443064
+        }
+      },
+      "retained_over_upstream_speed_ratio": 0.877653832313782,
+      "upstream_over_custom_speed_ratio": 0.3585806451612903,
+      "upstream_time_change_percent": 13.940139401394003,
+      "library_session_variability_above_15_percent": false,
+      "custom_session_variability_above_15_percent": false
+    },
+    {
+      "rows": 65536,
+      "reduction": 128,
+      "layout": "row_major_via_transpose",
+      "retained": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            430.8575,
+            429.53,
+            431.225
+          ],
+          "median_us": 430.8575,
+          "max_min_session_ratio": 1.003946173724769
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            109.51,
+            109.5275,
+            109.5325
+          ],
+          "median_us": 109.5275,
+          "max_min_session_ratio": 1.0002054606885216
+        }
+      },
+      "upstream": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            523.01,
+            524.1375,
+            520.12
+          ],
+          "median_us": 523.01,
+          "max_min_session_ratio": 1.0077241790356073
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            109.0475,
+            109.05250000000001,
+            109.005
+          ],
+          "median_us": 109.0475,
+          "max_min_session_ratio": 1.000435759827531
+        }
+      },
+      "retained_over_upstream_speed_ratio": 0.8238035601613737,
+      "upstream_over_custom_speed_ratio": 4.796166808042367,
+      "upstream_time_change_percent": 21.388161979308705,
+      "library_session_variability_above_15_percent": false,
+      "custom_session_variability_above_15_percent": false
+    },
+    {
+      "rows": 65536,
+      "reduction": 128,
+      "layout": "column_major_nontransposed",
+      "retained": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            110.7975,
+            113.095,
+            112.51
+          ],
+          "median_us": 112.51,
+          "max_min_session_ratio": 1.0207360274374422
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            197.41750000000002,
+            373.01,
+            373.24749999999995
+          ],
+          "median_us": 373.01,
+          "max_min_session_ratio": 1.8906505249028072
+        }
+      },
+      "upstream": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            109.4025,
+            111.655,
+            109.85499999999999
+          ],
+          "median_us": 109.85499999999999,
+          "max_min_session_ratio": 1.020589109024017
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            204.55,
+            377.19500000000005,
+            204.62
+          ],
+          "median_us": 204.62,
+          "max_min_session_ratio": 1.8440234661451969
+        }
+      },
+      "retained_over_upstream_speed_ratio": 1.0241682217468482,
+      "upstream_over_custom_speed_ratio": 0.536873228423419,
+      "upstream_time_change_percent": -2.3597902408674876,
+      "library_session_variability_above_15_percent": false,
+      "custom_session_variability_above_15_percent": true
+    },
+    {
+      "rows": 65536,
+      "reduction": 256,
+      "layout": "row_major_via_transpose",
+      "retained": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            454.5225,
+            435.09000000000003,
+            457.3175
+          ],
+          "median_us": 454.5225,
+          "max_min_session_ratio": 1.0510871313981014
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            217.51,
+            217.53250000000003,
+            217.57999999999998
+          ],
+          "median_us": 217.53250000000003,
+          "max_min_session_ratio": 1.000321824283941
+        }
+      },
+      "upstream": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            532.5425,
+            556.975,
+            532.28
+          ],
+          "median_us": 532.5425,
+          "max_min_session_ratio": 1.0463947546404149
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            217.42,
+            217.4325,
+            217.475
+          ],
+          "median_us": 217.4325,
+          "max_min_session_ratio": 1.0002529666084077
+        }
+      },
+      "retained_over_upstream_speed_ratio": 0.8534952609416149,
+      "upstream_over_custom_speed_ratio": 2.449231370655261,
+      "upstream_time_change_percent": 17.165266845975722,
+      "library_session_variability_above_15_percent": false,
+      "custom_session_variability_above_15_percent": false
+    },
+    {
+      "rows": 65536,
+      "reduction": 256,
+      "layout": "column_major_nontransposed",
+      "retained": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            216.34,
+            216.4025,
+            216.345
+          ],
+          "median_us": 216.345,
+          "max_min_session_ratio": 1.0002888971064066
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            358.2375,
+            357.59749999999997,
+            358.47
+          ],
+          "median_us": 358.2375,
+          "max_min_session_ratio": 1.002439894014919
+        }
+      },
+      "upstream": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            216.5525,
+            216.5,
+            216.5325
+          ],
+          "median_us": 216.5325,
+          "max_min_session_ratio": 1.000242494226328
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            373.315,
+            373.81,
+            372.8575
+          ],
+          "median_us": 373.315,
+          "max_min_session_ratio": 1.002554595254219
+        }
+      },
+      "retained_over_upstream_speed_ratio": 0.9991340791797998,
+      "upstream_over_custom_speed_ratio": 0.5800262512891258,
+      "upstream_time_change_percent": 0.08666712889136008,
+      "library_session_variability_above_15_percent": false,
+      "custom_session_variability_above_15_percent": false
+    },
+    {
+      "rows": 65536,
+      "reduction": 512,
+      "layout": "row_major_via_transpose",
+      "retained": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            581.6324999999999,
+            580.635,
+            582.2475
+          ],
+          "median_us": 581.6324999999999,
+          "max_min_session_ratio": 1.002777131933142
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            428.74,
+            428.745,
+            428.8325
+          ],
+          "median_us": 428.745,
+          "max_min_session_ratio": 1.0002157484722676
+        }
+      },
+      "upstream": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            668.5174999999999,
+            667.835,
+            667.45
+          ],
+          "median_us": 667.835,
+          "max_min_session_ratio": 1.001599370739381
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            428.75,
+            428.79499999999996,
+            428.7875
+          ],
+          "median_us": 428.7875,
+          "max_min_session_ratio": 1.0001049562682214
+        }
+      },
+      "retained_over_upstream_speed_ratio": 0.8709224583916685,
+      "upstream_over_custom_speed_ratio": 1.5574964288837712,
+      "upstream_time_change_percent": 14.820784601960879,
+      "library_session_variability_above_15_percent": false,
+      "custom_session_variability_above_15_percent": false
+    },
+    {
+      "rows": 65536,
+      "reduction": 512,
+      "layout": "column_major_nontransposed",
+      "retained": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            428.925,
+            428.88,
+            429.04
+          ],
+          "median_us": 428.925,
+          "max_min_session_ratio": 1.0003730647267302
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            646.3975,
+            648.21,
+            648.765
+          ],
+          "median_us": 648.21,
+          "max_min_session_ratio": 1.0036626069871866
+        }
+      },
+      "upstream": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            428.2375,
+            428.21500000000003,
+            428.305
+          ],
+          "median_us": 428.2375,
+          "max_min_session_ratio": 1.0002101747953713
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            677.415,
+            674.9525,
+            674.9375
+          ],
+          "median_us": 674.9525,
+          "max_min_session_ratio": 1.003670710250949
+        }
+      },
+      "retained_over_upstream_speed_ratio": 1.0016054175545113,
+      "upstream_over_custom_speed_ratio": 0.6344705738551972,
+      "upstream_time_change_percent": -0.16028443201026032,
+      "library_session_variability_above_15_percent": false,
+      "custom_session_variability_above_15_percent": false
+    },
+    {
+      "rows": 248144,
+      "reduction": 256,
+      "layout": "row_major_via_transpose",
+      "retained": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            1591.8075,
+            1595.2325,
+            1592.1575
+          ],
+          "median_us": 1592.1575,
+          "max_min_session_ratio": 1.002151642079837
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            813.74,
+            813.73,
+            813.67
+          ],
+          "median_us": 813.73,
+          "max_min_session_ratio": 1.0000860299630072
+        }
+      },
+      "upstream": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            1985.9975,
+            1987.6675,
+            1984.33
+          ],
+          "median_us": 1985.9975,
+          "max_min_session_ratio": 1.0016819279051368
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            813.64,
+            813.6724999999999,
+            813.6424999999999
+          ],
+          "median_us": 813.6424999999999,
+          "max_min_session_ratio": 1.0000399439555576
+        }
+      },
+      "retained_over_upstream_speed_ratio": 0.8016915932673632,
+      "upstream_over_custom_speed_ratio": 2.4408723733089164,
+      "upstream_time_change_percent": 24.736246257044293,
+      "library_session_variability_above_15_percent": false,
+      "custom_session_variability_above_15_percent": false
+    },
+    {
+      "rows": 248144,
+      "reduction": 256,
+      "layout": "column_major_nontransposed",
+      "retained": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            811.495,
+            811.2025,
+            811.005
+          ],
+          "median_us": 811.2025,
+          "max_min_session_ratio": 1.0006041886301564
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            970.1324999999999,
+            970.405,
+            969.25
+          ],
+          "median_us": 970.1324999999999,
+          "max_min_session_ratio": 1.001191643022956
+        }
+      },
+      "upstream": {
+        "rocblas_sgemv": {
+          "session_medians_us": [
+            811.1700000000001,
+            811.8925,
+            810.71
+          ],
+          "median_us": 811.1700000000001,
+          "max_min_session_ratio": 1.0014585980190203
+        },
+        "custom_wave32_four_rows": {
+          "session_medians_us": [
+            969.0025,
+            970.5575,
+            970.5025
+          ],
+          "median_us": 970.5025,
+          "max_min_session_ratio": 1.0016047430218187
+        }
+      },
+      "retained_over_upstream_speed_ratio": 1.0000400655842794,
+      "upstream_over_custom_speed_ratio": 0.8358247402763002,
+      "upstream_time_change_percent": -0.004006397909261938,
+      "library_session_variability_above_15_percent": false,
+      "custom_session_variability_above_15_percent": false
+    }
+  ],
+  "full_blas_totals": {
+    "numeric_reference_comparisons": 16173888,
+    "guard_values_checked": 23040
+  },
+  "all_run_totals": {
+    "q8_bit_comparisons": 8096384,
+    "numeric_reference_comparisons": 16225996,
+    "guard_values_checked": 37376
+  }
+}

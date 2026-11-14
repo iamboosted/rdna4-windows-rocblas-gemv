@@ -1,0 +1,1063 @@
+{
+  "date": "2026-11-14",
+  "scope": "separate single-GPU native Windows synthetic GEMV",
+  "upstream_commit": "4e81d94c6b489ce7d37e9a7381bf2cdb4ebf7a89",
+  "operator_reported_power_limit_percent": {
+    "RX 9060 XT": -30,
+    "RX 9070 XT": -30
+  },
+  "benchmark_math_identical_across_devices": true,
+  "models_or_inference_tok_s_tested": false,
+  "dual_gpu_compute_tested": false,
+  "cards": {
+    "RX 9060 XT": {
+      "rows": [
+        {
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                27.285,
+                61.4725,
+                61.3975
+              ],
+              "median_us": 61.3975,
+              "max_min_session_ratio": 2.2529778266446763
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                9.0375,
+                18.215,
+                18.145
+              ],
+              "median_us": 18.145,
+              "max_min_session_ratio": 2.015491009681881
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                79.76249999999999,
+                79.38999999999999,
+                79.4975
+              ],
+              "median_us": 79.4975,
+              "max_min_session_ratio": 1.004692026703615
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                20.78,
+                18.674999999999997,
+                18.612499999999997
+              ],
+              "median_us": 18.674999999999997,
+              "max_min_session_ratio": 1.1164539959704503
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.7723198842730903,
+          "upstream_over_custom_speed_ratio": 4.2568942436412325,
+          "upstream_time_change_percent": 29.480027688423792,
+          "library_session_variability_above_15_percent": true,
+          "custom_session_variability_above_15_percent": true
+        },
+        {
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                6.09,
+                6.0975,
+                6.0975
+              ],
+              "median_us": 6.0975,
+              "max_min_session_ratio": 1.001231527093596
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                19.335,
+                19.384999999999998,
+                19.3325
+              ],
+              "median_us": 19.335,
+              "max_min_session_ratio": 1.0027156342945815
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                6.9475,
+                6.945,
+                6.952500000000001
+              ],
+              "median_us": 6.9475,
+              "max_min_session_ratio": 1.0010799136069115
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                19.32,
+                19.375,
+                19.6675
+              ],
+              "median_us": 19.375,
+              "max_min_session_ratio": 1.017986542443064
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.877653832313782,
+          "upstream_over_custom_speed_ratio": 0.3585806451612903,
+          "upstream_time_change_percent": 13.940139401394003,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "row_major_via_transpose",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                430.8575,
+                429.53,
+                431.225
+              ],
+              "median_us": 430.8575,
+              "max_min_session_ratio": 1.003946173724769
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                109.51,
+                109.5275,
+                109.5325
+              ],
+              "median_us": 109.5275,
+              "max_min_session_ratio": 1.0002054606885216
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                523.01,
+                524.1375,
+                520.12
+              ],
+              "median_us": 523.01,
+              "max_min_session_ratio": 1.0077241790356073
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                109.0475,
+                109.05250000000001,
+                109.005
+              ],
+              "median_us": 109.0475,
+              "max_min_session_ratio": 1.000435759827531
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.8238035601613737,
+          "upstream_over_custom_speed_ratio": 4.796166808042367,
+          "upstream_time_change_percent": 21.388161979308705,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "column_major_nontransposed",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                110.7975,
+                113.095,
+                112.51
+              ],
+              "median_us": 112.51,
+              "max_min_session_ratio": 1.0207360274374422
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                197.41750000000002,
+                373.01,
+                373.24749999999995
+              ],
+              "median_us": 373.01,
+              "max_min_session_ratio": 1.8906505249028072
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                109.4025,
+                111.655,
+                109.85499999999999
+              ],
+              "median_us": 109.85499999999999,
+              "max_min_session_ratio": 1.020589109024017
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                204.55,
+                377.19500000000005,
+                204.62
+              ],
+              "median_us": 204.62,
+              "max_min_session_ratio": 1.8440234661451969
+            }
+          },
+          "retained_over_upstream_speed_ratio": 1.0241682217468482,
+          "upstream_over_custom_speed_ratio": 0.536873228423419,
+          "upstream_time_change_percent": -2.3597902408674876,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": true
+        },
+        {
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                454.5225,
+                435.09000000000003,
+                457.3175
+              ],
+              "median_us": 454.5225,
+              "max_min_session_ratio": 1.0510871313981014
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                217.51,
+                217.53250000000003,
+                217.57999999999998
+              ],
+              "median_us": 217.53250000000003,
+              "max_min_session_ratio": 1.000321824283941
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                532.5425,
+                556.975,
+                532.28
+              ],
+              "median_us": 532.5425,
+              "max_min_session_ratio": 1.0463947546404149
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                217.42,
+                217.4325,
+                217.475
+              ],
+              "median_us": 217.4325,
+              "max_min_session_ratio": 1.0002529666084077
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.8534952609416149,
+          "upstream_over_custom_speed_ratio": 2.449231370655261,
+          "upstream_time_change_percent": 17.165266845975722,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                216.34,
+                216.4025,
+                216.345
+              ],
+              "median_us": 216.345,
+              "max_min_session_ratio": 1.0002888971064066
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                358.2375,
+                357.59749999999997,
+                358.47
+              ],
+              "median_us": 358.2375,
+              "max_min_session_ratio": 1.002439894014919
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                216.5525,
+                216.5,
+                216.5325
+              ],
+              "median_us": 216.5325,
+              "max_min_session_ratio": 1.000242494226328
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                373.315,
+                373.81,
+                372.8575
+              ],
+              "median_us": 373.315,
+              "max_min_session_ratio": 1.002554595254219
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.9991340791797998,
+          "upstream_over_custom_speed_ratio": 0.5800262512891258,
+          "upstream_time_change_percent": 0.08666712889136008,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "row_major_via_transpose",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                581.6324999999999,
+                580.635,
+                582.2475
+              ],
+              "median_us": 581.6324999999999,
+              "max_min_session_ratio": 1.002777131933142
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                428.74,
+                428.745,
+                428.8325
+              ],
+              "median_us": 428.745,
+              "max_min_session_ratio": 1.0002157484722676
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                668.5174999999999,
+                667.835,
+                667.45
+              ],
+              "median_us": 667.835,
+              "max_min_session_ratio": 1.001599370739381
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                428.75,
+                428.79499999999996,
+                428.7875
+              ],
+              "median_us": 428.7875,
+              "max_min_session_ratio": 1.0001049562682214
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.8709224583916685,
+          "upstream_over_custom_speed_ratio": 1.5574964288837712,
+          "upstream_time_change_percent": 14.820784601960879,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "column_major_nontransposed",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                428.925,
+                428.88,
+                429.04
+              ],
+              "median_us": 428.925,
+              "max_min_session_ratio": 1.0003730647267302
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                646.3975,
+                648.21,
+                648.765
+              ],
+              "median_us": 648.21,
+              "max_min_session_ratio": 1.0036626069871866
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                428.2375,
+                428.21500000000003,
+                428.305
+              ],
+              "median_us": 428.2375,
+              "max_min_session_ratio": 1.0002101747953713
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                677.415,
+                674.9525,
+                674.9375
+              ],
+              "median_us": 674.9525,
+              "max_min_session_ratio": 1.003670710250949
+            }
+          },
+          "retained_over_upstream_speed_ratio": 1.0016054175545113,
+          "upstream_over_custom_speed_ratio": 0.6344705738551972,
+          "upstream_time_change_percent": -0.16028443201026032,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                1591.8075,
+                1595.2325,
+                1592.1575
+              ],
+              "median_us": 1592.1575,
+              "max_min_session_ratio": 1.002151642079837
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                813.74,
+                813.73,
+                813.67
+              ],
+              "median_us": 813.73,
+              "max_min_session_ratio": 1.0000860299630072
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                1985.9975,
+                1987.6675,
+                1984.33
+              ],
+              "median_us": 1985.9975,
+              "max_min_session_ratio": 1.0016819279051368
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                813.64,
+                813.6724999999999,
+                813.6424999999999
+              ],
+              "median_us": 813.6424999999999,
+              "max_min_session_ratio": 1.0000399439555576
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.8016915932673632,
+          "upstream_over_custom_speed_ratio": 2.4408723733089164,
+          "upstream_time_change_percent": 24.736246257044293,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                811.495,
+                811.2025,
+                811.005
+              ],
+              "median_us": 811.2025,
+              "max_min_session_ratio": 1.0006041886301564
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                970.1324999999999,
+                970.405,
+                969.25
+              ],
+              "median_us": 970.1324999999999,
+              "max_min_session_ratio": 1.001191643022956
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                811.1700000000001,
+                811.8925,
+                810.71
+              ],
+              "median_us": 811.1700000000001,
+              "max_min_session_ratio": 1.0014585980190203
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                969.0025,
+                970.5575,
+                970.5025
+              ],
+              "median_us": 970.5025,
+              "max_min_session_ratio": 1.0016047430218187
+            }
+          },
+          "retained_over_upstream_speed_ratio": 1.0000400655842794,
+          "upstream_over_custom_speed_ratio": 0.8358247402763002,
+          "upstream_time_change_percent": -0.004006397909261938,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        }
+      ],
+      "large_row_major_ratio_range": [
+        1.5574964288837712,
+        4.796166808042367
+      ],
+      "upstream_wins_column_major_count": 5,
+      "sampled_peaks": {
+        "temperatureC": 28.0,
+        "hotspotC": 37.0,
+        "powerW": 77.0
+      },
+      "checks": {
+        "q8_bit_comparisons": 8096384,
+        "numeric_reference_comparisons": 16225996,
+        "guard_values_checked": 37376
+      },
+      "upstream_dll_sha256": "5ba05a7ea975ba3bf89f2ee45cc5175e0da09ac2ff40fee7da19019c0a0aa55a",
+      "benchmark_sha256": "788914bfdd0c78b505708bed2a3782437ef860fec09d6bd15cbe1c280d5f9eb3",
+      "source_sha256": "732e187af0d86f9b692b98dfc6384fb90bafba90780fb7bef0eecb753a2a2fdd"
+    },
+    "RX 9070 XT": {
+      "rows": [
+        {
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                14.0175,
+                12.9925,
+                31.432499999999997
+              ],
+              "median_us": 14.0175,
+              "max_min_session_ratio": 2.4192803540504135
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                5.3375,
+                4.965,
+                10.25
+              ],
+              "median_us": 5.3375,
+              "max_min_session_ratio": 2.0644511581067473
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                17.9,
+                17.89,
+                40.322500000000005
+              ],
+              "median_us": 17.9,
+              "max_min_session_ratio": 2.2539128004471776
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                5.35,
+                5.34,
+                10.215
+              ],
+              "median_us": 5.35,
+              "max_min_session_ratio": 1.9129213483146068
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.7831005586592179,
+          "upstream_over_custom_speed_ratio": 3.3457943925233646,
+          "upstream_time_change_percent": 27.69752095594791,
+          "library_session_variability_above_15_percent": true,
+          "custom_session_variability_above_15_percent": true
+        },
+        {
+          "rows": 4096,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                3.8875,
+                4.1274999999999995,
+                3.91
+              ],
+              "median_us": 3.91,
+              "max_min_session_ratio": 1.0617363344051445
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                11.370000000000001,
+                11.535,
+                11.035
+              ],
+              "median_us": 11.370000000000001,
+              "max_min_session_ratio": 1.0453103760761215
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                4.1425,
+                4.112500000000001,
+                4.04
+              ],
+              "median_us": 4.112500000000001,
+              "max_min_session_ratio": 1.0253712871287128
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                11.52,
+                11.5275,
+                11.235
+              ],
+              "median_us": 11.52,
+              "max_min_session_ratio": 1.026034712950601
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.9507598784194528,
+          "upstream_over_custom_speed_ratio": 0.3569878472222223,
+          "upstream_time_change_percent": 5.179028132992336,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "row_major_via_transpose",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                200.97,
+                200.7775,
+                199.10750000000002
+              ],
+              "median_us": 200.7775,
+              "max_min_session_ratio": 1.0093542433107743
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                33.11,
+                33.225,
+                32.3725
+              ],
+              "median_us": 33.11,
+              "max_min_session_ratio": 1.026334079851726
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                256.8225,
+                230.3825,
+                226.5975
+              ],
+              "median_us": 230.3825,
+              "max_min_session_ratio": 1.1333862906695793
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                30.5175,
+                28.925,
+                28.747500000000002
+              ],
+              "median_us": 28.925,
+              "max_min_session_ratio": 1.0615705713540307
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.8714963159094116,
+          "upstream_over_custom_speed_ratio": 7.964822817631806,
+          "upstream_time_change_percent": 14.745178120058267,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 65536,
+          "reduction": 128,
+          "layout": "column_major_nontransposed",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                19.3875,
+                19.6725,
+                19.5075
+              ],
+              "median_us": 19.5075,
+              "max_min_session_ratio": 1.0147001934235977
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                89.2,
+                94.76249999999999,
+                95.5
+              ],
+              "median_us": 94.76249999999999,
+              "max_min_session_ratio": 1.0706278026905829
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                19.525,
+                19.552500000000002,
+                19.490000000000002
+              ],
+              "median_us": 19.525,
+              "max_min_session_ratio": 1.0032067727039506
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                92.93,
+                92.935,
+                93.9075
+              ],
+              "median_us": 92.935,
+              "max_min_session_ratio": 1.0105186699666415
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.9991037131882203,
+          "upstream_over_custom_speed_ratio": 0.2100930758056706,
+          "upstream_time_change_percent": 0.08970908624887919,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                241.375,
+                213.26749999999998,
+                214.825
+              ],
+              "median_us": 214.825,
+              "max_min_session_ratio": 1.131794577232818
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                111.305,
+                110.88,
+                110.7025
+              ],
+              "median_us": 110.88,
+              "max_min_session_ratio": 1.0054425148483548
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                300.74,
+                265.5575,
+                301.9825
+              ],
+              "median_us": 300.74,
+              "max_min_session_ratio": 1.1371642676256555
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                110.9075,
+                110.72999999999999,
+                110.89
+              ],
+              "median_us": 110.89,
+              "max_min_session_ratio": 1.0016029982841146
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.7143213406929573,
+          "upstream_over_custom_speed_ratio": 2.7120569934169,
+          "upstream_time_change_percent": 39.99301757244269,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 65536,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                108.305,
+                108.345,
+                109.7425
+              ],
+              "median_us": 108.345,
+              "max_min_session_ratio": 1.0132727020913161
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                212.08749999999998,
+                214.73,
+                240.4475
+              ],
+              "median_us": 214.73,
+              "max_min_session_ratio": 1.1337183945305593
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                108.4375,
+                108.285,
+                108.375
+              ],
+              "median_us": 108.375,
+              "max_min_session_ratio": 1.0014083206353603
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                224.34,
+                211.14249999999998,
+                212.3625
+              ],
+              "median_us": 212.3625,
+              "max_min_session_ratio": 1.062505180150846
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.9997231833910034,
+          "upstream_over_custom_speed_ratio": 0.5103302136676673,
+          "upstream_time_change_percent": 0.027689325764912454,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "row_major_via_transpose",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                297.25750000000005,
+                305.91499999999996,
+                297.205
+              ],
+              "median_us": 297.25750000000005,
+              "max_min_session_ratio": 1.0293063710233676
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                223.2475,
+                216.99,
+                216.35500000000002
+              ],
+              "median_us": 216.99,
+              "max_min_session_ratio": 1.0318573640544475
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                333.9975,
+                334.28,
+                335.255
+              ],
+              "median_us": 334.28,
+              "max_min_session_ratio": 1.0037649982410048
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                216.655,
+                216.365,
+                216.35
+              ],
+              "median_us": 216.365,
+              "max_min_session_ratio": 1.0014097527155073
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.8892470384109132,
+          "upstream_over_custom_speed_ratio": 1.5449818593580291,
+          "upstream_time_change_percent": 12.454689957360166,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 65536,
+          "reduction": 512,
+          "layout": "column_major_nontransposed",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                214.7425,
+                214.4775,
+                213.595
+              ],
+              "median_us": 214.4775,
+              "max_min_session_ratio": 1.0053723167677147
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                398.5675,
+                399.10249999999996,
+                397.26250000000005
+              ],
+              "median_us": 398.5675,
+              "max_min_session_ratio": 1.0046316981844496
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                213.6275,
+                213.64749999999998,
+                214.60750000000002
+              ],
+              "median_us": 213.64749999999998,
+              "max_min_session_ratio": 1.0045874243718622
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                396.53,
+                398.275,
+                397.2925
+              ],
+              "median_us": 397.2925,
+              "max_min_session_ratio": 1.0044006758631125
+            }
+          },
+          "retained_over_upstream_speed_ratio": 1.0038849038720323,
+          "upstream_over_custom_speed_ratio": 0.5377587042292516,
+          "upstream_time_change_percent": -0.386986979986248,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "row_major_via_transpose",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                801.5799999999999,
+                806.06,
+                809.2725
+              ],
+              "median_us": 806.06,
+              "max_min_session_ratio": 1.0095966715736422
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                408.725,
+                408.6875,
+                408.9475
+              ],
+              "median_us": 408.725,
+              "max_min_session_ratio": 1.0006361829025845
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                992.355,
+                993.7475,
+                1010.1125
+              ],
+              "median_us": 993.7475,
+              "max_min_session_ratio": 1.0178943019383184
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                408.825,
+                408.885,
+                408.89
+              ],
+              "median_us": 408.885,
+              "max_min_session_ratio": 1.000158992233841
+            }
+          },
+          "retained_over_upstream_speed_ratio": 0.81113160033107,
+          "upstream_over_custom_speed_ratio": 2.430383848759431,
+          "upstream_time_change_percent": 23.284556980869908,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        },
+        {
+          "rows": 248144,
+          "reduction": 256,
+          "layout": "column_major_nontransposed",
+          "retained": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                406.935,
+                406.515,
+                409.4925
+              ],
+              "median_us": 406.935,
+              "max_min_session_ratio": 1.0073244529722152
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                482.1975,
+                488.52,
+                482.99
+              ],
+              "median_us": 482.99,
+              "max_min_session_ratio": 1.01311184732397
+            }
+          },
+          "upstream": {
+            "rocblas_sgemv": {
+              "session_medians_us": [
+                406.4775,
+                406.765,
+                406.6175
+              ],
+              "median_us": 406.6175,
+              "max_min_session_ratio": 1.000707296221808
+            },
+            "custom_wave32_four_rows": {
+              "session_medians_us": [
+                481.685,
+                482.01,
+                483.08500000000004
+              ],
+              "median_us": 482.01,
+              "max_min_session_ratio": 1.0029064637678151
+            }
+          },
+          "retained_over_upstream_speed_ratio": 1.0007808321088,
+          "upstream_over_custom_speed_ratio": 0.8435872699736521,
+          "upstream_time_change_percent": -0.07802228857188842,
+          "library_session_variability_above_15_percent": false,
+          "custom_session_variability_above_15_percent": false
+        }
+      ],
+      "large_row_major_ratio_range": [
+        1.5449818593580291,
+        7.964822817631806
+      ],
+      "upstream_wins_column_major_count": 5,
+      "sampled_peaks": {
+        "temperatureC": 40.0,
+        "hotspotC": 45.0,
+        "powerW": 94.0
+      },
+      "checks": {
+        "q8_bit_comparisons": 8096384,
+        "numeric_reference_comparisons": 16225996,
+        "guard_values_checked": 37376
+      },
+      "upstream_dll_sha256": "7a3265574033d9e3036bf6c46882f9f1f49fbac9f782949b794f098a23aae6df",
+      "benchmark_sha256": "c55d6087f7c07c490af1b3aa02c226fc52c77efba8cf1c0ba8fbc8a1604a4ecb",
+      "source_sha256": "6f01ef696e2bcd018cba2bd42d13b19bf55095133a97fe6e99c99a4d4ea70622"
+    }
+  },
+  "total_checks": {
+    "q8_bit_comparisons": 16192768,
+    "numeric_reference_comparisons": 32451992,
+    "guard_values_checked": 74752
+  }
+}
